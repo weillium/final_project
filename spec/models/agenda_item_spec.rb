@@ -4,6 +4,8 @@ RSpec.describe AgendaItem, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:photos) }
+
     it { should belong_to(:leader) }
 
     end

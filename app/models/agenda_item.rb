@@ -1,6 +1,9 @@
 class AgendaItem < ApplicationRecord
   # Direct associations
 
+  has_many   :photos,
+             :dependent => :destroy
+
   belongs_to :leader,
              :class_name => "User"
 
