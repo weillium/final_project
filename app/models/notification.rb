@@ -5,6 +5,8 @@ class Notification < ApplicationRecord
 
   # Validations
 
+  validates :title, :presence => true
+
   # Scopes
 
   def to_s
