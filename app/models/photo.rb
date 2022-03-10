@@ -5,6 +5,8 @@ class Photo < ApplicationRecord
 
   # Validations
 
+  validates :upload_user_id, :presence => true
+
   # Scopes
 
   def to_s
