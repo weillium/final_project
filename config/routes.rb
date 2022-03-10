@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :photos
   resources :scores
   resources :budget_types
   resources :budget_lines
