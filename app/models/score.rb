@@ -5,6 +5,8 @@ class Score < ApplicationRecord
 
   # Validations
 
+  validates :description, :presence => true
+
   validates :family_id, :presence => true
 
   validates :score, :presence => true
