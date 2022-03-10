@@ -1,6 +1,10 @@
 class BudgetLine < ApplicationRecord
   # Direct associations
 
+  has_many   :itineraries,
+             :class_name => "AgendaItem",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
