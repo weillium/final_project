@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "user_types#index"
   resources :group_members
   resources :messages
   resources :message_groups
