@@ -3,7 +3,8 @@ class ScoresController < ApplicationController
 
   # GET /scores
   def index
-    @scores = Score.page(params[:page]).per(10)
+    @q = Score.ransack(params[:q])
+    @scores = @q.result(:distinct => true).includes(:family).page(params[:page]).per(10)
   end
 
   # GET /scores/1

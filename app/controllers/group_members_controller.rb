@@ -3,7 +3,8 @@ class GroupMembersController < ApplicationController
 
   # GET /group_members
   def index
-    @group_members = GroupMember.page(params[:page]).per(10)
+    @q = GroupMember.ransack(params[:q])
+    @group_members = @q.result(:distinct => true).includes(:user, :group).page(params[:page]).per(10)
   end
 
   # GET /group_members/1

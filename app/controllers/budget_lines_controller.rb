@@ -3,7 +3,8 @@ class BudgetLinesController < ApplicationController
 
   # GET /budget_lines
   def index
-    @budget_lines = BudgetLine.page(params[:page]).per(10)
+    @q = BudgetLine.ransack(params[:q])
+    @budget_lines = @q.result(:distinct => true).includes(:itineraries, :budget_type).page(params[:page]).per(10)
   end
 
   # GET /budget_lines/1

@@ -3,7 +3,8 @@ class FamiliesController < ApplicationController
 
   # GET /families
   def index
-    @families = Family.page(params[:page]).per(10)
+    @q = Family.ransack(params[:q])
+    @families = @q.result(:distinct => true).includes(:users, :scores).page(params[:page]).per(10)
   end
 
   # GET /families/1

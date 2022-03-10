@@ -3,7 +3,8 @@ class MessageGroupsController < ApplicationController
 
   # GET /message_groups
   def index
-    @message_groups = MessageGroup.page(params[:page]).per(10)
+    @q = MessageGroup.ransack(params[:q])
+    @message_groups = @q.result(:distinct => true).includes(:messages, :group_members).page(params[:page]).per(10)
   end
 
   # GET /message_groups/1

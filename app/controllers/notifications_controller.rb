@@ -3,7 +3,8 @@ class NotificationsController < ApplicationController
 
   # GET /notifications
   def index
-    @notifications = Notification.page(params[:page]).per(10)
+    @q = Notification.ransack(params[:q])
+    @notifications = @q.result(:distinct => true).includes(:creator).page(params[:page]).per(10)
   end
 
   # GET /notifications/1
