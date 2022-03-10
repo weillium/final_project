@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :agenda_items,
+             :foreign_key => "leader_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
