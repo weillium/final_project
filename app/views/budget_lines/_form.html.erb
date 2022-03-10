@@ -1,7 +1,6 @@
 <% was_validated = budget_line.errors.any? %>
 
 <%= form_with(model: budget_line, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for budgeted_amount start -->
   <div class="form-group">
     <% budgeted_amount_class = "form-control" %>
     <% budgeted_amount_was_invalid = budget_line.errors.include?(:budgeted_amount) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :budgeted_amount %>
-    <!-- Input for budgeted_amount start -->
     <%= f.text_field :budgeted_amount, class: budgeted_amount_class, placeholder: "Enter budgeted amount" %>
-    <!-- Input for budgeted_amount end -->
     <% if budgeted_amount_was_invalid %>
       <% budget_line.errors.full_messages_for(:budgeted_amount).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for budgeted_amount end -->
-  <!-- Label and input for actual_amount start -->
   <div class="form-group">
     <% actual_amount_class = "form-control" %>
     <% actual_amount_was_invalid = budget_line.errors.include?(:actual_amount) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :actual_amount %>
-    <!-- Input for actual_amount start -->
     <%= f.text_field :actual_amount, class: actual_amount_class, placeholder: "Enter actual amount" %>
-    <!-- Input for actual_amount end -->
     <% if actual_amount_was_invalid %>
       <% budget_line.errors.full_messages_for(:actual_amount).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for actual_amount end -->
-  <!-- Label and input for notes start -->
   <div class="form-group">
     <% note_class = "form-control" %>
     <% note_was_invalid = budget_line.errors.include?(:note) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :notes %>
-    <!-- Input for notes start -->
     <%= f.text_area :notes, class: note_class, placeholder: "Enter note" %>
-    <!-- Input for notes end -->
     <% if note_was_invalid %>
       <% budget_line.errors.full_messages_for(:note).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for notes end -->
-  <!-- Label and input for budget_type_id start -->
   <div class="form-group">
     <% budget_type_class = "form-control" %>
     <% budget_type_was_invalid = budget_line.errors.include?(:budget_type) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :budget_type_id %>
-    <!-- Input for budget_type_id start -->
     <%= f.collection_select :budget_type_id, BudgetType.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for budget_type_id end -->
     <% if budget_type_was_invalid %>
       <% budget_line.errors.full_messages_for(:budget_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for budget_type_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

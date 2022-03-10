@@ -1,41 +1,23 @@
-<!-- Form budget_line start -->
 <%= form_with(model: @budget_line, local: true) do |f| %>
-<!-- Form budget_line end -->
 
-  <!-- Label and input for budgeted_amount start -->
   <div class="form-group">
     <%= f.label :budgeted_amount %>
 
-    <!-- Input for budgeted_amount start -->
     <%= f.text_field :budgeted_amount, class: "form-control" %>
-    <!-- Input for budgeted_amount end -->
   </div>
-  <!-- Label and input for budgeted_amount end -->
 
-  <!-- Label and input for actual_amount start -->
   <div class="form-group">
     <%= f.label :actual_amount %>
 
-    <!-- Input for actual_amount start -->
     <%= f.text_field :actual_amount, class: "form-control" %>
-    <!-- Input for actual_amount end -->
   </div>
-  <!-- Label and input for actual_amount end -->
 
-  <!-- Label and input for notes start -->
   <div class="form-group">
     <%= f.label :notes %>
-    <!-- Input for notes start -->
     <%= f.text_area :notes, rows: "3", class: "form-control" %>
-    <!-- Input for notes end -->
   </div>
-  <!-- Label and input for notes end -->
 
-  <!-- Label and input for budget_type_id start -->
-  <!-- Input for budget_type_id start -->
   <%= f.hidden_field :budget_type_id, value: @budget_type.id %>
-  <!-- Input for budget_type_id end -->
-  <!-- Label and input for budget_type_id end -->
 
   <%= f.submit "Create budget line", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

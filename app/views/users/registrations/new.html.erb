@@ -7,9 +7,7 @@
 
       <div class="card-body">
         <% was_validated = resource.errors.any? %>
-        <!-- Form html options start -->
         <% form_html_options = { novalidate: true, class: "mb-3", multipart: true } %>
-        <!-- Form html options end -->
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: form_html_options) do |f| %>
 
           <div class="form-group">
@@ -91,7 +89,6 @@
           </div>
 
 
-          <!-- Devise Input for first_name start -->
           <div class="form-group">
             <% first_name_was_invalid = resource.errors.include?(:first_name) %>
 
@@ -117,9 +114,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for first_name end -->
 
-          <!-- Devise Input for last_name start -->
           <div class="form-group">
             <% last_name_was_invalid = resource.errors.include?(:last_name) %>
 
@@ -145,9 +140,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for last_name end -->
 
-          <!-- Devise Input for user_type_id start -->
           <div class="form-group">
             <% user_type_id_was_invalid = resource.errors.include?(:user_type_id) %>
 
@@ -173,9 +166,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for user_type_id end -->
 
-          <!-- Devise Input for family_id start -->
           <div class="form-group">
             <% family_id_was_invalid = resource.errors.include?(:family_id) %>
 
@@ -201,9 +192,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for family_id end -->
 
-          <!-- Devise Input for phone_number start -->
           <div class="form-group">
             <% phone_number_was_invalid = resource.errors.include?(:phone_number) %>
 
@@ -229,9 +218,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for phone_number end -->
 
-          <!-- Devise Input for dietary_restrictions start -->
           <div class="form-group">
             <% dietary_restrictions_was_invalid = resource.errors.include?(:dietary_restrictions) %>
 
@@ -257,9 +244,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for dietary_restrictions end -->
 
-          <!-- Devise Input for adventure_score start -->
           <div class="form-group">
             <% adventure_score_was_invalid = resource.errors.include?(:adventure_score) %>
 
@@ -285,9 +270,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for adventure_score end -->
 
-          <!-- Devise Input for freetime_score start -->
           <div class="form-group">
             <% freetime_score_was_invalid = resource.errors.include?(:freetime_score) %>
 
@@ -313,9 +296,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for freetime_score end -->
 
-          <!-- Devise Input for beachwater_score start -->
           <div class="form-group">
             <% beachwater_score_was_invalid = resource.errors.include?(:beachwater_score) %>
 
@@ -341,9 +322,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for beachwater_score end -->
 
-          <!-- Devise Input for nightlife_score start -->
           <div class="form-group">
             <% nightlife_score_was_invalid = resource.errors.include?(:nightlife_score) %>
 
@@ -369,9 +348,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for nightlife_score end -->
 
-          <!-- Devise Input for headshot start -->
           <div class="form-group">
             <% headshot_was_invalid = resource.errors.include?(:headshot) %>
 
@@ -397,9 +374,7 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for headshot end -->
 
-          <!-- Devise Input for walkup_song start -->
           <div class="form-group">
             <% walkup_song_was_invalid = resource.errors.include?(:walkup_song) %>
 
@@ -425,7 +400,6 @@
               <% end %>
             <% end %>
           </div>
-          <!-- Devise Input for walkup_song end -->
           <%= f.button class: "btn btn-outline-primary btn-block" %>
 
           <hr>

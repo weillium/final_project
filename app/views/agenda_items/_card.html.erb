@@ -6,63 +6,45 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Start time</dt>
-      <!-- Display start_time start -->
       <dd><%= agenda_item.start_time %></dd>
-      <!-- Display start_time end -->
 
       <dt>End time</dt>
-      <!-- Display end_time start -->
       <dd><%= agenda_item.end_time %></dd>
-      <!-- Display end_time end -->
 
       <dt>Location</dt>
-      <!-- Display location start -->
       <dd>
         <div>
           <%= render partial: "agenda_items/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display location end -->
 
       <dt>Activity name</dt>
-      <!-- Display activity_name start -->
       <dd><%= agenda_item.activity_name %></dd>
-      <!-- Display activity_name end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= agenda_item.description %></dd>
-      <!-- Display description end -->
 
       <dt>Photo</dt>
-      <!-- Display photo start -->
       <dd>
         <%= cl_image_tag @agenda_item.photo, class: "img-fluid" %>
       </dd>
-      <!-- Display photo end -->
 
       <dt>Leader</dt>
-      <!-- Display leader_id start -->
       <dd>
         <% if @agenda_item.leader.present? %>
           <%= link_to agenda_item.leader, agenda_item.leader %>
         <% end %>
       </dd>
-      <!-- Display leader_id end -->
 
       <dt>Is cyoa</dt>
-      <!-- Display is_cyoa start -->
       <dd><%= agenda_item.is_cyoa %></dd>
-      <!-- Display is_cyoa end -->
 
       <dt>Budget line</dt>
-      <!-- Display budget_line_id start -->
       <dd>
         <% if @agenda_item.budget_line.present? %>
           <%= link_to agenda_item.budget_line, agenda_item.budget_line %>
         <% end %>
       </dd>
-      <!-- Display budget_line_id end -->
 
     </dl>
 
@@ -71,21 +53,17 @@
         <%= link_to_show_or_back agenda_item, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link agenda_item start -->
       <div class="col">
         <%= link_to edit_agenda_item_url(agenda_item), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link agenda_item end -->
 
-      <!-- Delete link agenda_item start -->
       <div class="col">
         <%= link_to agenda_item, method: :delete, data: { confirm: "Do you really want to delete this agenda_item?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link agenda_item end -->
     </div>
   </div>
 

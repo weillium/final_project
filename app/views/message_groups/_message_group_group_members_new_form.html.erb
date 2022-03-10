@@ -1,22 +1,12 @@
-<!-- Form group_member start -->
 <%= form_with(model: @group_member, local: true) do |f| %>
-<!-- Form group_member end -->
 
-  <!-- Label and input for group_id start -->
-  <!-- Input for group_id start -->
   <%= f.hidden_field :group_id, value: @message_group.id %>
-  <!-- Input for group_id end -->
-  <!-- Label and input for group_id end -->
 
-  <!-- Label and input for user_id start -->
   <div class="form-group">
     <%= f.label :user_id %>
 
-    <!-- Input for user_id start -->
     <%= f.collection_select :user_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_id end -->
   </div>
-  <!-- Label and input for user_id end -->
 
   <%= f.submit "Create group member", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -1,42 +1,24 @@
-<!-- Form notification start -->
 <%= form_with(model: @notification, local: true) do |f| %>
-<!-- Form notification end -->
 
-  <!-- Label and input for creator_id start -->
-  <!-- Input for creator_id start -->
   <%= f.hidden_field :creator_id, value: @user.id %>
-  <!-- Input for creator_id end -->
-  <!-- Label and input for creator_id end -->
 
-  <!-- Label and input for title start -->
   <div class="form-group">
     <%= f.label :title %>
 
-    <!-- Input for title start -->
     <%= f.text_field :title, class: "form-control" %>
-    <!-- Input for title end -->
   </div>
-  <!-- Label and input for title end -->
 
-  <!-- Label and input for body start -->
   <div class="form-group">
     <%= f.label :body %>
 
-    <!-- Input for body start -->
     <%= f.text_field :body, class: "form-control" %>
-    <!-- Input for body end -->
   </div>
-  <!-- Label and input for body end -->
 
-  <!-- Label and input for attachment start -->
   <div class="form-group">
     <%= f.label :attachment %>
 
-    <!-- Input for attachment start -->
     <%= f.text_field :attachment, class: "form-control" %>
-    <!-- Input for attachment end -->
   </div>
-  <!-- Label and input for attachment end -->
 
   <%= f.submit "Create notification", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

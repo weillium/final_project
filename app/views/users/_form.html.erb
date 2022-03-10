@@ -1,7 +1,6 @@
 <% was_validated = user.errors.any? %>
 
 <%= form_with(model: user, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for first_name start -->
   <div class="form-group">
     <% first_name_class = "form-control" %>
     <% first_name_was_invalid = user.errors.include?(:first_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :first_name %>
-    <!-- Input for first_name start -->
     <%= f.text_field :first_name, class: first_name_class, placeholder: "Enter first name" %>
-    <!-- Input for first_name end -->
     <% if first_name_was_invalid %>
       <% user.errors.full_messages_for(:first_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for first_name end -->
-  <!-- Label and input for last_name start -->
   <div class="form-group">
     <% last_name_class = "form-control" %>
     <% last_name_was_invalid = user.errors.include?(:last_name) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :last_name %>
-    <!-- Input for last_name start -->
     <%= f.text_field :last_name, class: last_name_class, placeholder: "Enter last name" %>
-    <!-- Input for last_name end -->
     <% if last_name_was_invalid %>
       <% user.errors.full_messages_for(:last_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for last_name end -->
-  <!-- Label and input for user_type_id start -->
   <div class="form-group">
     <% user_type_class = "form-control" %>
     <% user_type_was_invalid = user.errors.include?(:user_type) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :user_type_id %>
-    <!-- Input for user_type_id start -->
     <%= f.collection_select :user_type_id, UserType.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for user_type_id end -->
     <% if user_type_was_invalid %>
       <% user.errors.full_messages_for(:user_type).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for user_type_id end -->
-  <!-- Label and input for family_id start -->
   <div class="form-group">
     <% family_class = "form-control" %>
     <% family_was_invalid = user.errors.include?(:family) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :family_id %>
-    <!-- Input for family_id start -->
     <%= f.collection_select :family_id, Family.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for family_id end -->
     <% if family_was_invalid %>
       <% user.errors.full_messages_for(:family).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for family_id end -->
-  <!-- Label and input for phone_number start -->
   <div class="form-group">
     <% phone_number_class = "form-control" %>
     <% phone_number_was_invalid = user.errors.include?(:phone_number) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :phone_number %>
-    <!-- Input for phone_number start -->
     <%= f.text_field :phone_number, class: phone_number_class, placeholder: "Enter phone number" %>
-    <!-- Input for phone_number end -->
     <% if phone_number_was_invalid %>
       <% user.errors.full_messages_for(:phone_number).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for phone_number end -->
-  <!-- Label and input for dietary_restrictions start -->
   <div class="form-group">
     <% dietary_restriction_class = "form-control" %>
     <% dietary_restriction_was_invalid = user.errors.include?(:dietary_restriction) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :dietary_restrictions %>
-    <!-- Input for dietary_restrictions start -->
     <%= f.text_area :dietary_restrictions, class: dietary_restriction_class, placeholder: "Enter dietary restriction" %>
-    <!-- Input for dietary_restrictions end -->
     <% if dietary_restriction_was_invalid %>
       <% user.errors.full_messages_for(:dietary_restriction).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,8 +133,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dietary_restrictions end -->
-  <!-- Label and input for adventure_score start -->
   <div class="form-group">
     <% adventure_score_class = "form-control" %>
     <% adventure_score_was_invalid = user.errors.include?(:adventure_score) %>
@@ -171,9 +146,7 @@
     <% end %>
 
     <%= f.label :adventure_score %>
-    <!-- Input for adventure_score start -->
     <%= f.number_field :adventure_score, class: adventure_score_class, placeholder: "Enter adventure score" %>
-    <!-- Input for adventure_score end -->
     <% if adventure_score_was_invalid %>
       <% user.errors.full_messages_for(:adventure_score).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -182,8 +155,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for adventure_score end -->
-  <!-- Label and input for freetime_score start -->
   <div class="form-group">
     <% freetime_score_class = "form-control" %>
     <% freetime_score_was_invalid = user.errors.include?(:freetime_score) %>
@@ -197,9 +168,7 @@
     <% end %>
 
     <%= f.label :freetime_score %>
-    <!-- Input for freetime_score start -->
     <%= f.number_field :freetime_score, class: freetime_score_class, placeholder: "Enter freetime score" %>
-    <!-- Input for freetime_score end -->
     <% if freetime_score_was_invalid %>
       <% user.errors.full_messages_for(:freetime_score).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -208,8 +177,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for freetime_score end -->
-  <!-- Label and input for beachwater_score start -->
   <div class="form-group">
     <% beachwater_score_class = "form-control" %>
     <% beachwater_score_was_invalid = user.errors.include?(:beachwater_score) %>
@@ -223,9 +190,7 @@
     <% end %>
 
     <%= f.label :beachwater_score %>
-    <!-- Input for beachwater_score start -->
     <%= f.number_field :beachwater_score, class: beachwater_score_class, placeholder: "Enter beachwater score" %>
-    <!-- Input for beachwater_score end -->
     <% if beachwater_score_was_invalid %>
       <% user.errors.full_messages_for(:beachwater_score).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -234,8 +199,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for beachwater_score end -->
-  <!-- Label and input for nightlife_score start -->
   <div class="form-group">
     <% nightlife_score_class = "form-control" %>
     <% nightlife_score_was_invalid = user.errors.include?(:nightlife_score) %>
@@ -249,9 +212,7 @@
     <% end %>
 
     <%= f.label :nightlife_score %>
-    <!-- Input for nightlife_score start -->
     <%= f.number_field :nightlife_score, class: nightlife_score_class, placeholder: "Enter nightlife score" %>
-    <!-- Input for nightlife_score end -->
     <% if nightlife_score_was_invalid %>
       <% user.errors.full_messages_for(:nightlife_score).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -260,8 +221,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for nightlife_score end -->
-  <!-- Label and input for headshot start -->
   <div class="form-group">
     <% headshot_class = "form-control" %>
     <% headshot_was_invalid = user.errors.include?(:headshot) %>
@@ -275,9 +234,7 @@
     <% end %>
 
     <%= f.label :headshot %>
-    <!-- Input for headshot start -->
     <%= f.text_field :headshot, class: headshot_class, placeholder: "Enter headshot" %>
-    <!-- Input for headshot end -->
     <% if headshot_was_invalid %>
       <% user.errors.full_messages_for(:headshot).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -286,8 +243,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for headshot end -->
-  <!-- Label and input for walkup_song start -->
   <div class="form-group">
     <% walkup_song_class = "form-control" %>
     <% walkup_song_was_invalid = user.errors.include?(:walkup_song) %>
@@ -301,9 +256,7 @@
     <% end %>
 
     <%= f.label :walkup_song %>
-    <!-- Input for walkup_song start -->
     <%= f.text_field :walkup_song, class: walkup_song_class, placeholder: "Enter walkup song" %>
-    <!-- Input for walkup_song end -->
     <% if walkup_song_was_invalid %>
       <% user.errors.full_messages_for(:walkup_song).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -312,6 +265,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for walkup_song end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

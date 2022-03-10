@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Group</dt>
-      <!-- Display group_id start -->
       <dd>
         <% if @group_member.group.present? %>
           <%= link_to group_member.group, group_member.group %>
         <% end %>
       </dd>
-      <!-- Display group_id end -->
 
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @group_member.user.present? %>
           <%= link_to group_member.user, group_member.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back group_member, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link group_member start -->
       <div class="col">
         <%= link_to edit_group_member_url(group_member), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link group_member end -->
 
-      <!-- Delete link group_member start -->
       <div class="col">
         <%= link_to group_member, method: :delete, data: { confirm: "Do you really want to delete this group_member?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link group_member end -->
     </div>
   </div>
 

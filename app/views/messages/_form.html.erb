@@ -1,7 +1,6 @@
 <% was_validated = message.errors.any? %>
 
 <%= form_with(model: message, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for sender_id start -->
   <div class="form-group">
     <% sender_class = "form-control" %>
     <% sender_was_invalid = message.errors.include?(:sender) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :sender_id %>
-    <!-- Input for sender_id start -->
     <%= f.collection_select :sender_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for sender_id end -->
     <% if sender_was_invalid %>
       <% message.errors.full_messages_for(:sender).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for sender_id end -->
-  <!-- Label and input for receiver_id start -->
   <div class="form-group">
     <% receiver_class = "form-control" %>
     <% receiver_was_invalid = message.errors.include?(:receiver) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :receiver_id %>
-    <!-- Input for receiver_id start -->
     <%= f.collection_select :receiver_id, MessageGroup.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for receiver_id end -->
     <% if receiver_was_invalid %>
       <% message.errors.full_messages_for(:receiver).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for receiver_id end -->
-  <!-- Label and input for body start -->
   <div class="form-group">
     <% body_class = "form-control" %>
     <% body_was_invalid = message.errors.include?(:body) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :body %>
-    <!-- Input for body start -->
     <%= f.text_area :body, class: body_class, placeholder: "Enter body" %>
-    <!-- Input for body end -->
     <% if body_was_invalid %>
       <% message.errors.full_messages_for(:body).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for body end -->
-  <!-- Label and input for attachment start -->
   <div class="form-group">
     <% attachment_class = "form-control" %>
     <% attachment_was_invalid = message.errors.include?(:attachment) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :attachment %>
-    <!-- Input for attachment start -->
     <%= f.text_field :attachment, class: attachment_class, placeholder: "Enter attachment" %>
-    <!-- Input for attachment end -->
     <% if attachment_was_invalid %>
       <% message.errors.full_messages_for(:attachment).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,6 +89,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for attachment end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

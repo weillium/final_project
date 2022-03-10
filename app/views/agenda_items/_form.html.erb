@@ -1,7 +1,6 @@
 <% was_validated = agenda_item.errors.any? %>
 
 <%= form_with(model: agenda_item, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for start_time start -->
   <div class="form-group">
     <% start_time_class = "form-control" %>
     <% start_time_was_invalid = agenda_item.errors.include?(:start_time) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :start_time %>
-    <!-- Input for start_time start -->
     <%= f.datetime_select :start_time, class: start_time_class, placeholder: "Enter start time" %>
-    <!-- Input for start_time end -->
     <% if start_time_was_invalid %>
       <% agenda_item.errors.full_messages_for(:start_time).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for start_time end -->
-  <!-- Label and input for end_time start -->
   <div class="form-group">
     <% end_time_class = "form-control" %>
     <% end_time_was_invalid = agenda_item.errors.include?(:end_time) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :end_time %>
-    <!-- Input for end_time start -->
     <%= f.datetime_select :end_time, class: end_time_class, placeholder: "Enter end time" %>
-    <!-- Input for end_time end -->
     <% if end_time_was_invalid %>
       <% agenda_item.errors.full_messages_for(:end_time).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for end_time end -->
-  <!-- Label and input for location start -->
   <div class="form-group">
     <% location_class = "form-control" %>
     <% location_was_invalid = agenda_item.errors.include?(:location) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :location %>
-    <!-- Input for location start -->
     <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
-    <!-- Input for location end -->
     <% if location_was_invalid %>
       <% agenda_item.errors.full_messages_for(:location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for location end -->
-  <!-- Label and input for activity_name start -->
   <div class="form-group">
     <% activity_name_class = "form-control" %>
     <% activity_name_was_invalid = agenda_item.errors.include?(:activity_name) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :activity_name %>
-    <!-- Input for activity_name start -->
     <%= f.text_field :activity_name, class: activity_name_class, placeholder: "Enter activity name" %>
-    <!-- Input for activity_name end -->
     <% if activity_name_was_invalid %>
       <% agenda_item.errors.full_messages_for(:activity_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for activity_name end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = agenda_item.errors.include?(:description) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% agenda_item.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for photo start -->
   <div class="form-group">
     <% photo_class = "form-control" %>
     <% photo_was_invalid = agenda_item.errors.include?(:photo) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :photo %>
-    <!-- Input for photo start -->
     <%= f.file_field :photo, class: "form-control" %>
-    <!-- Input for photo end -->
     <% if photo_was_invalid %>
       <% agenda_item.errors.full_messages_for(:photo).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,8 +133,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for photo end -->
-  <!-- Label and input for leader_id start -->
   <div class="form-group">
     <% leader_class = "form-control" %>
     <% leader_was_invalid = agenda_item.errors.include?(:leader) %>
@@ -171,9 +146,7 @@
     <% end %>
 
     <%= f.label :leader_id %>
-    <!-- Input for leader_id start -->
     <%= f.collection_select :leader_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for leader_id end -->
     <% if leader_was_invalid %>
       <% agenda_item.errors.full_messages_for(:leader).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -182,8 +155,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for leader_id end -->
-  <!-- Label and input for is_cyoa start -->
   <div class="form-check">
     <% is_cyoa_class = "form-check-input" %>
     <% is_cyoa_was_invalid = agenda_item.errors.include?(:is_cyoa) %>
@@ -207,8 +178,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for is_cyoa end -->
-  <!-- Label and input for budget_line_id start -->
   <div class="form-group">
     <% budget_line_class = "form-control" %>
     <% budget_line_was_invalid = agenda_item.errors.include?(:budget_line) %>
@@ -222,9 +191,7 @@
     <% end %>
 
     <%= f.label :budget_line_id %>
-    <!-- Input for budget_line_id start -->
     <%= f.collection_select :budget_line_id, BudgetLine.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for budget_line_id end -->
     <% if budget_line_was_invalid %>
       <% agenda_item.errors.full_messages_for(:budget_line).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -233,6 +200,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for budget_line_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

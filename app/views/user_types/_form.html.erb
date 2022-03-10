@@ -1,7 +1,6 @@
 <% was_validated = user_type.errors.any? %>
 
 <%= form_with(model: user_type, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for type_name start -->
   <div class="form-group">
     <% type_name_class = "form-control" %>
     <% type_name_was_invalid = user_type.errors.include?(:type_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :type_name %>
-    <!-- Input for type_name start -->
     <%= f.text_field :type_name, class: type_name_class, placeholder: "Enter type name" %>
-    <!-- Input for type_name end -->
     <% if type_name_was_invalid %>
       <% user_type.errors.full_messages_for(:type_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,6 +23,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for type_name end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

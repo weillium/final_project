@@ -1,7 +1,6 @@
 <% was_validated = family.errors.any? %>
 
 <%= form_with(model: family, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for name start -->
   <div class="form-group">
     <% name_class = "form-control" %>
     <% name_was_invalid = family.errors.include?(:name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :name %>
-    <!-- Input for name start -->
     <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
-    <!-- Input for name end -->
     <% if name_was_invalid %>
       <% family.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for name end -->
-  <!-- Label and input for crest start -->
   <div class="form-group">
     <% crest_class = "form-control" %>
     <% crest_was_invalid = family.errors.include?(:crest) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :crest %>
-    <!-- Input for crest start -->
     <%= f.file_field :crest, class: "form-control" %>
-    <!-- Input for crest end -->
     <% if crest_was_invalid %>
       <% family.errors.full_messages_for(:crest).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for crest end -->
-  <!-- Label and input for motto start -->
   <div class="form-group">
     <% motto_class = "form-control" %>
     <% motto_was_invalid = family.errors.include?(:motto) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :motto %>
-    <!-- Input for motto start -->
     <%= f.text_area :motto, class: motto_class, placeholder: "Enter motto" %>
-    <!-- Input for motto end -->
     <% if motto_was_invalid %>
       <% family.errors.full_messages_for(:motto).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,6 +67,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for motto end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

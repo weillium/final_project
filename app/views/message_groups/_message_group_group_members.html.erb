@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @message_group.group_members.each do |group_member| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to group_member, group_member %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to group_member, method: :delete, data: { confirm: "Do you really want to delete this group_member" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="message_group_group_members_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "message_groups/message_group_group_members_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

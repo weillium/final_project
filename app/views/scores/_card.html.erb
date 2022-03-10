@@ -6,23 +6,17 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Family</dt>
-      <!-- Display family_id start -->
       <dd>
         <% if @score.family.present? %>
           <%= link_to score.family, score.family %>
         <% end %>
       </dd>
-      <!-- Display family_id end -->
 
       <dt>Score</dt>
-      <!-- Display score start -->
       <dd><%= score.score %></dd>
-      <!-- Display score end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= score.description %></dd>
-      <!-- Display description end -->
 
     </dl>
 
@@ -31,21 +25,17 @@
         <%= link_to_show_or_back score, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link score start -->
       <div class="col">
         <%= link_to edit_score_url(score), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link score end -->
 
-      <!-- Delete link score start -->
       <div class="col">
         <%= link_to score, method: :delete, data: { confirm: "Do you really want to delete this score?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link score end -->
     </div>
   </div>
 
