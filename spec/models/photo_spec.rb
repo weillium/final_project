@@ -4,6 +4,8 @@ RSpec.describe Photo, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:upload_user) }
+
     end
 
     describe "InDirect Associations" do

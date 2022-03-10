@@ -1,6 +1,9 @@
 class Photo < ApplicationRecord
   # Direct associations
 
+  belongs_to :upload_user,
+             :class_name => "User"
+
   # Indirect associations
 
   # Validations
