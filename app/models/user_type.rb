@@ -5,6 +5,8 @@ class UserType < ApplicationRecord
 
   # Validations
 
+  validates :type_name, :presence => true
+
   # Scopes
 
   def to_s
