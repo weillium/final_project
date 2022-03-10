@@ -1,5 +1,7 @@
 ActiveAdmin.register BudgetLine do
 
+ permit_params :budgeted_amount, :actual_amount, :notes, :budget_type_id
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
