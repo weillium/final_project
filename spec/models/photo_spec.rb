@@ -12,6 +12,8 @@ RSpec.describe Photo, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:agenda_item_id) }
+
     it { should validate_presence_of(:photo) }
 
     it { should validate_presence_of(:title) }

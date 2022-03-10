@@ -5,6 +5,8 @@ class Photo < ApplicationRecord
 
   # Validations
 
+  validates :agenda_item_id, :presence => true
+
   validates :photo, :presence => true
 
   validates :title, :presence => true
