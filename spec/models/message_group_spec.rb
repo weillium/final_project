@@ -4,6 +4,8 @@ RSpec.describe MessageGroup, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:messages) }
+
     end
 
     describe "InDirect Associations" do
