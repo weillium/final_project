@@ -14,6 +14,8 @@ class AgendaItemResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :photos
+
   belongs_to :leader,
              resource: UserResource
 
