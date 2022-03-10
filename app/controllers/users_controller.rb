@@ -6,12 +6,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @group_member = GroupMember.new
-    @notification = Notification.new
-    @message = Message.new
-    @tag = Tag.new
-    @comment = Comment.new
-    @photo = Photo.new
     @agenda_item = AgendaItem.new
   end
 

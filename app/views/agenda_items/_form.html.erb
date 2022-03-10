@@ -191,7 +191,7 @@
     <% end %>
 
     <%= f.label :budget_line_id %>
-    <%= f.collection_select :budget_line_id, BudgetLine.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.number_field :budget_line_id, class: budget_line_class, placeholder: "Enter budget line" %>
     <% if budget_line_was_invalid %>
       <% agenda_item.errors.full_messages_for(:budget_line).each do |message| %>
         <div class="invalid-feedback d-flex">

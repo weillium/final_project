@@ -3,17 +3,14 @@ class AgendaItemsController < ApplicationController
 
   def index
     @q = AgendaItem.ransack(params[:q])
-    @agenda_items = @q.result(distinct: true).includes(:leader, :photos,
-                                                       :budget_line).page(params[:page]).per(10)
+    @agenda_items = @q.result(distinct: true).includes(:leader).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@agenda_items.where.not(location_latitude: nil)) do |agenda_item, marker|
       marker.lat agenda_item.location_latitude
       marker.lng agenda_item.location_longitude
     end
   end
 
-  def show
-    @photo = Photo.new
-  end
+  def show; end
 
   def new
     @agenda_item = AgendaItem.new
