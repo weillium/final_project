@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :notifications,
+             :foreign_key => "creator_id",
+             :dependent => :destroy
+
   has_many   :messages,
              :foreign_key => "sender_id",
              :dependent => :destroy
