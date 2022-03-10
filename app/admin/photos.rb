@@ -1,5 +1,7 @@
 ActiveAdmin.register Photo do
 
+ permit_params :upload_user_id, :agenda_item_id, :photo, :title, :description
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
