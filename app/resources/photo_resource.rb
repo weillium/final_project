@@ -10,6 +10,9 @@ class PhotoResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :upload_user,
+             resource: UserResource
+
   # Indirect associations
 
 end
