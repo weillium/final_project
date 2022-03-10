@@ -12,6 +12,8 @@ RSpec.describe Tag, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:photo_id) }
+
     it { should validate_presence_of(:tagged_id) }
 
     end

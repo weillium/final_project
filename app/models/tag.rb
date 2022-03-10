@@ -5,6 +5,8 @@ class Tag < ApplicationRecord
 
   # Validations
 
+  validates :photo_id, :presence => true
+
   validates :tagged_id, :presence => true
 
   # Scopes
