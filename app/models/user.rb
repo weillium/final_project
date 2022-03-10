@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :phone_number, :presence => true
+
   validates :user_type_id, :presence => true
 
   validates :walkup_song, :presence => true
