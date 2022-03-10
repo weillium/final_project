@@ -3,7 +3,7 @@ class FamiliesController < ApplicationController
 
   # GET /families
   def index
-    @families = Family.all
+    @families = Family.page(params[:page]).per(10)
   end
 
   # GET /families/1

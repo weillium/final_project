@@ -3,7 +3,7 @@ class ScoresController < ApplicationController
 
   # GET /scores
   def index
-    @scores = Score.all
+    @scores = Score.page(params[:page]).per(10)
   end
 
   # GET /scores/1

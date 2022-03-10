@@ -3,7 +3,7 @@ class GroupMembersController < ApplicationController
 
   # GET /group_members
   def index
-    @group_members = GroupMember.all
+    @group_members = GroupMember.page(params[:page]).per(10)
   end
 
   # GET /group_members/1

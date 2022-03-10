@@ -3,7 +3,7 @@ class AgendaItemsController < ApplicationController
 
   # GET /agenda_items
   def index
-    @agenda_items = AgendaItem.all
+    @agenda_items = AgendaItem.page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@agenda_items.where.not(:location_latitude => nil)) do |agenda_item, marker|
       marker.lat agenda_item.location_latitude
       marker.lng agenda_item.location_longitude

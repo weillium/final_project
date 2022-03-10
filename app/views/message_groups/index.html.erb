@@ -34,6 +34,10 @@
       <div class="list-group list-group-flush">
         <%= render collection: @message_groups, partial: "list_item", as: :message_group %>
       </div>
+      <div class="card-footer d-flex justify-content-center">
+        <%= paginate @message_groups, theme: 'twitter-bootstrap-4' %>
+      </div>
+
     </div>
   </div>
 </div>

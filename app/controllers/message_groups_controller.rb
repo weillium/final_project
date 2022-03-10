@@ -3,7 +3,7 @@ class MessageGroupsController < ApplicationController
 
   # GET /message_groups
   def index
-    @message_groups = MessageGroup.all
+    @message_groups = MessageGroup.page(params[:page]).per(10)
   end
 
   # GET /message_groups/1
