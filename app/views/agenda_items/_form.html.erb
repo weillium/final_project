@@ -1,0 +1,238 @@
+<% was_validated = agenda_item.errors.any? %>
+
+<%= form_with(model: agenda_item, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for start_time start -->
+  <div class="form-group">
+    <% start_time_class = "form-control" %>
+    <% start_time_was_invalid = agenda_item.errors.include?(:start_time) %>
+
+    <% if was_validated %>
+      <% if start_time_was_invalid %>
+        <% start_time_class << " is-invalid" %>
+      <% else %>
+        <% start_time_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :start_time %>
+    <!-- Input for start_time start -->
+    <%= f.datetime_select :start_time, class: start_time_class, placeholder: "Enter start time" %>
+    <!-- Input for start_time end -->
+    <% if start_time_was_invalid %>
+      <% agenda_item.errors.full_messages_for(:start_time).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for start_time end -->
+  <!-- Label and input for end_time start -->
+  <div class="form-group">
+    <% end_time_class = "form-control" %>
+    <% end_time_was_invalid = agenda_item.errors.include?(:end_time) %>
+
+    <% if was_validated %>
+      <% if end_time_was_invalid %>
+        <% end_time_class << " is-invalid" %>
+      <% else %>
+        <% end_time_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :end_time %>
+    <!-- Input for end_time start -->
+    <%= f.datetime_select :end_time, class: end_time_class, placeholder: "Enter end time" %>
+    <!-- Input for end_time end -->
+    <% if end_time_was_invalid %>
+      <% agenda_item.errors.full_messages_for(:end_time).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for end_time end -->
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <% location_class = "form-control" %>
+    <% location_was_invalid = agenda_item.errors.include?(:location) %>
+
+    <% if was_validated %>
+      <% if location_was_invalid %>
+        <% location_class << " is-invalid" %>
+      <% else %>
+        <% location_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :location %>
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
+    <!-- Input for location end -->
+    <% if location_was_invalid %>
+      <% agenda_item.errors.full_messages_for(:location).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for location end -->
+  <!-- Label and input for activity_name start -->
+  <div class="form-group">
+    <% activity_name_class = "form-control" %>
+    <% activity_name_was_invalid = agenda_item.errors.include?(:activity_name) %>
+
+    <% if was_validated %>
+      <% if activity_name_was_invalid %>
+        <% activity_name_class << " is-invalid" %>
+      <% else %>
+        <% activity_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :activity_name %>
+    <!-- Input for activity_name start -->
+    <%= f.text_field :activity_name, class: activity_name_class, placeholder: "Enter activity name" %>
+    <!-- Input for activity_name end -->
+    <% if activity_name_was_invalid %>
+      <% agenda_item.errors.full_messages_for(:activity_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for activity_name end -->
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <% description_class = "form-control" %>
+    <% description_was_invalid = agenda_item.errors.include?(:description) %>
+
+    <% if was_validated %>
+      <% if description_was_invalid %>
+        <% description_class << " is-invalid" %>
+      <% else %>
+        <% description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
+    <!-- Input for description end -->
+    <% if description_was_invalid %>
+      <% agenda_item.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for description end -->
+  <!-- Label and input for photo start -->
+  <div class="form-group">
+    <% photo_class = "form-control" %>
+    <% photo_was_invalid = agenda_item.errors.include?(:photo) %>
+
+    <% if was_validated %>
+      <% if photo_was_invalid %>
+        <% photo_class << " is-invalid" %>
+      <% else %>
+        <% photo_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :photo %>
+    <!-- Input for photo start -->
+    <%= f.text_field :photo, class: photo_class, placeholder: "Enter photo" %>
+    <!-- Input for photo end -->
+    <% if photo_was_invalid %>
+      <% agenda_item.errors.full_messages_for(:photo).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for photo end -->
+  <!-- Label and input for leader_id start -->
+  <div class="form-group">
+    <% leader_class = "form-control" %>
+    <% leader_was_invalid = agenda_item.errors.include?(:leader) %>
+
+    <% if was_validated %>
+      <% if leader_was_invalid %>
+        <% leader_class << " is-invalid" %>
+      <% else %>
+        <% leader_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :leader_id %>
+    <!-- Input for leader_id start -->
+    <%= f.number_field :leader_id, class: leader_class, placeholder: "Enter leader" %>
+    <!-- Input for leader_id end -->
+    <% if leader_was_invalid %>
+      <% agenda_item.errors.full_messages_for(:leader).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for leader_id end -->
+  <!-- Label and input for is_cyoa start -->
+  <div class="form-check">
+    <% is_cyoa_class = "form-check-input" %>
+    <% is_cyoa_was_invalid = agenda_item.errors.include?(:is_cyoa) %>
+
+    <% if was_validated %>
+      <% if is_cyoa_was_invalid %>
+        <% is_cyoa_class << " is-invalid" %>
+      <% else %>
+        <% is_cyoa_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :is_cyoa, class: "form-check-label" do %>
+      <%= f.check_box :is_cyoa, class: is_cyoa_class %> Is cyoa
+    <% end %>
+    <% if is_cyoa_was_invalid %>
+      <% agenda_item.errors.full_messages_for(:is_cyoa).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for is_cyoa end -->
+  <!-- Label and input for budget_line_id start -->
+  <div class="form-group">
+    <% budget_line_class = "form-control" %>
+    <% budget_line_was_invalid = agenda_item.errors.include?(:budget_line) %>
+
+    <% if was_validated %>
+      <% if budget_line_was_invalid %>
+        <% budget_line_class << " is-invalid" %>
+      <% else %>
+        <% budget_line_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :budget_line_id %>
+    <!-- Input for budget_line_id start -->
+    <%= f.number_field :budget_line_id, class: budget_line_class, placeholder: "Enter budget line" %>
+    <!-- Input for budget_line_id end -->
+    <% if budget_line_was_invalid %>
+      <% agenda_item.errors.full_messages_for(:budget_line).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for budget_line_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

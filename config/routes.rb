@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :agenda_items
   resources :families
   resources :user_types
   devise_for :users
