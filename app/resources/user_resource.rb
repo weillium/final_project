@@ -19,6 +19,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :family
+
   belongs_to :user_type
 
   has_many   :group_members
