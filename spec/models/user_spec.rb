@@ -6,18 +6,6 @@ RSpec.describe User, type: :model do
 
     it { should belong_to(:user_type) }
 
-    it { should have_many(:group_members) }
-
-    it { should have_many(:notifications) }
-
-    it { should have_many(:messages) }
-
-    it { should have_many(:tags) }
-
-    it { should have_many(:comments) }
-
-    it { should have_many(:photos) }
-
     it { should have_many(:agenda_items) }
   end
 

@@ -23,11 +23,6 @@ class AgendaItem < ApplicationRecord
 
   # Direct associations
 
-  belongs_to :budget_line
-
-  has_many   :photos,
-             dependent: :destroy
-
   belongs_to :leader,
              class_name: "User"
 

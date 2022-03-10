@@ -23,23 +23,6 @@ class UserResource < ApplicationResource
 
   belongs_to :user_type
 
-  has_many   :group_members
-
-  has_many   :notifications,
-             foreign_key: :creator_id
-
-  has_many   :messages,
-             foreign_key: :sender_id
-
-  has_many   :tags,
-             foreign_key: :tagged_id
-
-  has_many   :comments,
-             foreign_key: :commenter_id
-
-  has_many   :photos,
-             foreign_key: :upload_user_id
-
   has_many   :agenda_items,
              foreign_key: :leader_id
 
