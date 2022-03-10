@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :adventure_score, :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 0 }
+
   validates :beachwater_score, :presence => true
 
   validates :beachwater_score, :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 0 }
