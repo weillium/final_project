@@ -1,0 +1,57 @@
+<% was_validated = tag.errors.any? %>
+
+<%= form_with(model: tag, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for photo_id start -->
+  <div class="form-group">
+    <% photo_class = "form-control" %>
+    <% photo_was_invalid = tag.errors.include?(:photo) %>
+
+    <% if was_validated %>
+      <% if photo_was_invalid %>
+        <% photo_class << " is-invalid" %>
+      <% else %>
+        <% photo_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :photo_id %>
+    <!-- Input for photo_id start -->
+    <%= f.number_field :photo_id, class: photo_class, placeholder: "Enter photo" %>
+    <!-- Input for photo_id end -->
+    <% if photo_was_invalid %>
+      <% tag.errors.full_messages_for(:photo).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for photo_id end -->
+  <!-- Label and input for tagged_id start -->
+  <div class="form-group">
+    <% tagged_class = "form-control" %>
+    <% tagged_was_invalid = tag.errors.include?(:tagged) %>
+
+    <% if was_validated %>
+      <% if tagged_was_invalid %>
+        <% tagged_class << " is-invalid" %>
+      <% else %>
+        <% tagged_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :tagged_id %>
+    <!-- Input for tagged_id start -->
+    <%= f.number_field :tagged_id, class: tagged_class, placeholder: "Enter tagged" %>
+    <!-- Input for tagged_id end -->
+    <% if tagged_was_invalid %>
+      <% tag.errors.full_messages_for(:tagged).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for tagged_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
