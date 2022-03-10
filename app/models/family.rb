@@ -1,6 +1,9 @@
 class Family < ApplicationRecord
   # Direct associations
 
+  has_many   :scores,
+             :dependent => :destroy
+
   has_many   :users,
              :dependent => :destroy
 

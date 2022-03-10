@@ -1,6 +1,8 @@
 class Score < ApplicationRecord
   # Direct associations
 
+  belongs_to :family
+
   # Indirect associations
 
   # Validations
