@@ -5,6 +5,8 @@ class Score < ApplicationRecord
 
   # Validations
 
+  validates :score, :presence => true
+
   # Scopes
 
   def to_s
