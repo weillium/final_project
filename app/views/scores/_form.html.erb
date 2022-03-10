@@ -1,0 +1,83 @@
+<% was_validated = score.errors.any? %>
+
+<%= form_with(model: score, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for family_id start -->
+  <div class="form-group">
+    <% family_class = "form-control" %>
+    <% family_was_invalid = score.errors.include?(:family) %>
+
+    <% if was_validated %>
+      <% if family_was_invalid %>
+        <% family_class << " is-invalid" %>
+      <% else %>
+        <% family_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :family_id %>
+    <!-- Input for family_id start -->
+    <%= f.number_field :family_id, class: family_class, placeholder: "Enter family" %>
+    <!-- Input for family_id end -->
+    <% if family_was_invalid %>
+      <% score.errors.full_messages_for(:family).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for family_id end -->
+  <!-- Label and input for score start -->
+  <div class="form-group">
+    <% score_class = "form-control" %>
+    <% score_was_invalid = score.errors.include?(:score) %>
+
+    <% if was_validated %>
+      <% if score_was_invalid %>
+        <% score_class << " is-invalid" %>
+      <% else %>
+        <% score_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :score %>
+    <!-- Input for score start -->
+    <%= f.number_field :score, class: score_class, placeholder: "Enter score" %>
+    <!-- Input for score end -->
+    <% if score_was_invalid %>
+      <% score.errors.full_messages_for(:score).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for score end -->
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <% description_class = "form-control" %>
+    <% description_was_invalid = score.errors.include?(:description) %>
+
+    <% if was_validated %>
+      <% if description_was_invalid %>
+        <% description_class << " is-invalid" %>
+      <% else %>
+        <% description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
+    <!-- Input for description end -->
+    <% if description_was_invalid %>
+      <% score.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for description end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

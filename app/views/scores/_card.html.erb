@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Score #<%= score.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Family</dt>
+      <!-- Display family_id start -->
+      <dd><%= score.family_id %></dd>
+      <!-- Display family_id end -->
+
+      <dt>Score</dt>
+      <!-- Display score start -->
+      <dd><%= score.score %></dd>
+      <!-- Display score end -->
+
+      <dt>Description</dt>
+      <!-- Display description start -->
+      <dd><%= score.description %></dd>
+      <!-- Display description end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back score, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link score start -->
+      <div class="col">
+        <%= link_to edit_score_url(score), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link score end -->
+
+      <!-- Delete link score start -->
+      <div class="col">
+        <%= link_to score, method: :delete, data: { confirm: "Do you really want to delete this score?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link score end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(score.updated_at) %> ago
+  </div>
+</div>

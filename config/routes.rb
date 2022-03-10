@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :scores
   resources :budget_types
   resources :budget_lines
   resources :agenda_items
