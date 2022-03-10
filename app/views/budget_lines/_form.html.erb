@@ -1,0 +1,109 @@
+<% was_validated = budget_line.errors.any? %>
+
+<%= form_with(model: budget_line, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for budgeted_amount start -->
+  <div class="form-group">
+    <% budgeted_amount_class = "form-control" %>
+    <% budgeted_amount_was_invalid = budget_line.errors.include?(:budgeted_amount) %>
+
+    <% if was_validated %>
+      <% if budgeted_amount_was_invalid %>
+        <% budgeted_amount_class << " is-invalid" %>
+      <% else %>
+        <% budgeted_amount_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :budgeted_amount %>
+    <!-- Input for budgeted_amount start -->
+    <%= f.text_field :budgeted_amount, class: budgeted_amount_class, placeholder: "Enter budgeted amount" %>
+    <!-- Input for budgeted_amount end -->
+    <% if budgeted_amount_was_invalid %>
+      <% budget_line.errors.full_messages_for(:budgeted_amount).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for budgeted_amount end -->
+  <!-- Label and input for actual_amount start -->
+  <div class="form-group">
+    <% actual_amount_class = "form-control" %>
+    <% actual_amount_was_invalid = budget_line.errors.include?(:actual_amount) %>
+
+    <% if was_validated %>
+      <% if actual_amount_was_invalid %>
+        <% actual_amount_class << " is-invalid" %>
+      <% else %>
+        <% actual_amount_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :actual_amount %>
+    <!-- Input for actual_amount start -->
+    <%= f.text_field :actual_amount, class: actual_amount_class, placeholder: "Enter actual amount" %>
+    <!-- Input for actual_amount end -->
+    <% if actual_amount_was_invalid %>
+      <% budget_line.errors.full_messages_for(:actual_amount).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for actual_amount end -->
+  <!-- Label and input for notes start -->
+  <div class="form-group">
+    <% note_class = "form-control" %>
+    <% note_was_invalid = budget_line.errors.include?(:note) %>
+
+    <% if was_validated %>
+      <% if note_was_invalid %>
+        <% note_class << " is-invalid" %>
+      <% else %>
+        <% note_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :notes %>
+    <!-- Input for notes start -->
+    <%= f.text_area :notes, class: note_class, placeholder: "Enter note" %>
+    <!-- Input for notes end -->
+    <% if note_was_invalid %>
+      <% budget_line.errors.full_messages_for(:note).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for notes end -->
+  <!-- Label and input for budget_type_id start -->
+  <div class="form-group">
+    <% budget_type_class = "form-control" %>
+    <% budget_type_was_invalid = budget_line.errors.include?(:budget_type) %>
+
+    <% if was_validated %>
+      <% if budget_type_was_invalid %>
+        <% budget_type_class << " is-invalid" %>
+      <% else %>
+        <% budget_type_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :budget_type_id %>
+    <!-- Input for budget_type_id start -->
+    <%= f.number_field :budget_type_id, class: budget_type_class, placeholder: "Enter budget type" %>
+    <!-- Input for budget_type_id end -->
+    <% if budget_type_was_invalid %>
+      <% budget_line.errors.full_messages_for(:budget_type).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for budget_type_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>

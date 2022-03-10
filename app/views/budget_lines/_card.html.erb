@@ -1,0 +1,56 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Budget Line #<%= budget_line.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Budgeted amount</dt>
+      <!-- Display budgeted_amount start -->
+      <dd><%= budget_line.budgeted_amount %></dd>
+      <!-- Display budgeted_amount end -->
+
+      <dt>Actual amount</dt>
+      <!-- Display actual_amount start -->
+      <dd><%= budget_line.actual_amount %></dd>
+      <!-- Display actual_amount end -->
+
+      <dt>Notes</dt>
+      <!-- Display notes start -->
+      <dd><%= budget_line.notes %></dd>
+      <!-- Display notes end -->
+
+      <dt>Budget type</dt>
+      <!-- Display budget_type_id start -->
+      <dd><%= budget_line.budget_type_id %></dd>
+      <!-- Display budget_type_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back budget_line, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link budget_line start -->
+      <div class="col">
+        <%= link_to edit_budget_line_url(budget_line), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link budget_line end -->
+
+      <!-- Delete link budget_line start -->
+      <div class="col">
+        <%= link_to budget_line, method: :delete, data: { confirm: "Do you really want to delete this budget_line?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link budget_line end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(budget_line.updated_at) %> ago
+  </div>
+</div>
