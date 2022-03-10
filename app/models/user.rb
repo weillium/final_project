@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   mount_base64_uploader :headshot, HeadshotUploader
 
-  # Direct associations
+  
+  include JwtToken
+# Direct associations
 
   belongs_to :family
 
