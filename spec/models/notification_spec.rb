@@ -12,6 +12,8 @@ RSpec.describe Notification, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:creator_id) }
+
     it { should validate_presence_of(:title) }
 
     end

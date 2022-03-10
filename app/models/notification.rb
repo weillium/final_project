@@ -5,6 +5,8 @@ class Notification < ApplicationRecord
 
   # Validations
 
+  validates :creator_id, :presence => true
+
   validates :title, :presence => true
 
   # Scopes
