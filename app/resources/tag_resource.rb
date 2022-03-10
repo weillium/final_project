@@ -7,6 +7,8 @@ class TagResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :photo
+
   belongs_to :taggee,
              resource: UserResource,
              foreign_key: :tagged_id
