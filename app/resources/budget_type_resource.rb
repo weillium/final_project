@@ -6,6 +6,9 @@ class BudgetTypeResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :budgets,
+             resource: BudgetLineResource
+
   # Indirect associations
 
 end
