@@ -64,7 +64,7 @@
     <%= f.label :leader_id %>
 
     <!-- Input for leader_id start -->
-    <%= f.text_field :leader_id, class: "form-control" %>
+    <%= f.collection_select :leader_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for leader_id end -->
   </div>
   <!-- Label and input for leader_id end -->
