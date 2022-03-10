@@ -8,6 +8,8 @@ class MessageGroupsController < ApplicationController
 
   # GET /message_groups/1
   def show
+    @group_member = GroupMember.new
+    @message = Message.new
   end
 
   # GET /message_groups/new

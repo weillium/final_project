@@ -8,6 +8,7 @@ class BudgetTypesController < ApplicationController
 
   # GET /budget_types/1
   def show
+    @budget_line = BudgetLine.new
   end
 
   # GET /budget_types/new

@@ -24,7 +24,12 @@ class TagsController < ApplicationController
     @tag = Tag.new(tag_params)
 
     if @tag.save
-      redirect_to @tag, notice: 'Tag was successfully created.'
+      message = 'Tag was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @tag, notice: message
+      end
     else
       render :new
     end

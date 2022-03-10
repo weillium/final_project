@@ -24,7 +24,12 @@ class NotificationsController < ApplicationController
     @notification = Notification.new(notification_params)
 
     if @notification.save
-      redirect_to @notification, notice: 'Notification was successfully created.'
+      message = 'Notification was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @notification, notice: message
+      end
     else
       render :new
     end

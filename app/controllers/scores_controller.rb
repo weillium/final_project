@@ -24,7 +24,12 @@ class ScoresController < ApplicationController
     @score = Score.new(score_params)
 
     if @score.save
-      redirect_to @score, notice: 'Score was successfully created.'
+      message = 'Score was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @score, notice: message
+      end
     else
       render :new
     end

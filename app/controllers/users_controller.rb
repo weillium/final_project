@@ -8,6 +8,13 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @group_member = GroupMember.new
+    @notification = Notification.new
+    @message = Message.new
+    @tag = Tag.new
+    @comment = Comment.new
+    @photo = Photo.new
+    @agenda_item = AgendaItem.new
   end
 
   # GET /users/new
@@ -24,7 +31,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: 'User was successfully created.'
+      message = 'User was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @user, notice: message
+      end
     else
       render :new
     end

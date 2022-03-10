@@ -24,7 +24,12 @@ class GroupMembersController < ApplicationController
     @group_member = GroupMember.new(group_member_params)
 
     if @group_member.save
-      redirect_to @group_member, notice: 'Group member was successfully created.'
+      message = 'GroupMember was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @group_member, notice: message
+      end
     else
       render :new
     end

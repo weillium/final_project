@@ -8,6 +8,7 @@ class BudgetLinesController < ApplicationController
 
   # GET /budget_lines/1
   def show
+    @agenda_item = AgendaItem.new
   end
 
   # GET /budget_lines/new
@@ -24,7 +25,12 @@ class BudgetLinesController < ApplicationController
     @budget_line = BudgetLine.new(budget_line_params)
 
     if @budget_line.save
-      redirect_to @budget_line, notice: 'Budget line was successfully created.'
+      message = 'BudgetLine was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @budget_line, notice: message
+      end
     else
       render :new
     end

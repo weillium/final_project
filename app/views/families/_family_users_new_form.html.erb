@@ -1,0 +1,141 @@
+<!-- Form user start -->
+<%= form_with(model: @user, local: true) do |f| %>
+<!-- Form user end -->
+
+  <!-- Label and input for email start -->
+  <div class="form-group">
+    <%= f.label :email %>
+
+    <!-- Input for email start -->
+    <%= f.text_field :email, class: "form-control" %>
+    <!-- Input for email end -->
+  </div>
+  <!-- Label and input for email end -->
+
+  <!-- Label and input for password start -->
+  <div class="form-group">
+    <%= f.label :password %>
+
+    <!-- Input for password start -->
+    <%= f.text_field :password, class: "form-control" %>
+    <!-- Input for password end -->
+  </div>
+  <!-- Label and input for password end -->
+
+  <!-- Label and input for first_name start -->
+  <div class="form-group">
+    <%= f.label :first_name %>
+
+    <!-- Input for first_name start -->
+    <%= f.text_field :first_name, class: "form-control" %>
+    <!-- Input for first_name end -->
+  </div>
+  <!-- Label and input for first_name end -->
+
+  <!-- Label and input for last_name start -->
+  <div class="form-group">
+    <%= f.label :last_name %>
+
+    <!-- Input for last_name start -->
+    <%= f.text_field :last_name, class: "form-control" %>
+    <!-- Input for last_name end -->
+  </div>
+  <!-- Label and input for last_name end -->
+
+  <!-- Label and input for user_type_id start -->
+  <div class="form-group">
+    <%= f.label :user_type_id %>
+
+    <!-- Input for user_type_id start -->
+    <%= f.text_field :user_type_id, class: "form-control" %>
+    <!-- Input for user_type_id end -->
+  </div>
+  <!-- Label and input for user_type_id end -->
+
+  <!-- Label and input for family_id start -->
+  <!-- Input for family_id start -->
+  <%= f.hidden_field :family_id, value: @family.id %>
+  <!-- Input for family_id end -->
+  <!-- Label and input for family_id end -->
+
+  <!-- Label and input for phone_number start -->
+  <div class="form-group">
+    <%= f.label :phone_number %>
+
+    <!-- Input for phone_number start -->
+    <%= f.text_field :phone_number, class: "form-control" %>
+    <!-- Input for phone_number end -->
+  </div>
+  <!-- Label and input for phone_number end -->
+
+  <!-- Label and input for dietary_restrictions start -->
+  <div class="form-group">
+    <%= f.label :dietary_restrictions %>
+    <!-- Input for dietary_restrictions start -->
+    <%= f.text_area :dietary_restrictions, rows: "3", class: "form-control" %>
+    <!-- Input for dietary_restrictions end -->
+  </div>
+  <!-- Label and input for dietary_restrictions end -->
+
+  <!-- Label and input for adventure_score start -->
+  <div class="form-group">
+    <%= f.label :adventure_score %>
+
+    <!-- Input for adventure_score start -->
+    <%= f.text_field :adventure_score, class: "form-control" %>
+    <!-- Input for adventure_score end -->
+  </div>
+  <!-- Label and input for adventure_score end -->
+
+  <!-- Label and input for freetime_score start -->
+  <div class="form-group">
+    <%= f.label :freetime_score %>
+
+    <!-- Input for freetime_score start -->
+    <%= f.text_field :freetime_score, class: "form-control" %>
+    <!-- Input for freetime_score end -->
+  </div>
+  <!-- Label and input for freetime_score end -->
+
+  <!-- Label and input for beachwater_score start -->
+  <div class="form-group">
+    <%= f.label :beachwater_score %>
+
+    <!-- Input for beachwater_score start -->
+    <%= f.text_field :beachwater_score, class: "form-control" %>
+    <!-- Input for beachwater_score end -->
+  </div>
+  <!-- Label and input for beachwater_score end -->
+
+  <!-- Label and input for nightlife_score start -->
+  <div class="form-group">
+    <%= f.label :nightlife_score %>
+
+    <!-- Input for nightlife_score start -->
+    <%= f.text_field :nightlife_score, class: "form-control" %>
+    <!-- Input for nightlife_score end -->
+  </div>
+  <!-- Label and input for nightlife_score end -->
+
+  <!-- Label and input for headshot start -->
+  <div class="form-group">
+    <%= f.label :headshot %>
+
+    <!-- Input for headshot start -->
+    <%= f.text_field :headshot, class: "form-control" %>
+    <!-- Input for headshot end -->
+  </div>
+  <!-- Label and input for headshot end -->
+
+  <!-- Label and input for walkup_song start -->
+  <div class="form-group">
+    <%= f.label :walkup_song %>
+
+    <!-- Input for walkup_song start -->
+    <%= f.text_field :walkup_song, class: "form-control" %>
+    <!-- Input for walkup_song end -->
+  </div>
+  <!-- Label and input for walkup_song end -->
+
+  <%= f.submit "Create user", class: "btn btn-block btn-outline-secondary" %>
+<% end %>

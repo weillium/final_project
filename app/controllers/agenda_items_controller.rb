@@ -8,6 +8,7 @@ class AgendaItemsController < ApplicationController
 
   # GET /agenda_items/1
   def show
+    @photo = Photo.new
   end
 
   # GET /agenda_items/new
@@ -24,7 +25,12 @@ class AgendaItemsController < ApplicationController
     @agenda_item = AgendaItem.new(agenda_item_params)
 
     if @agenda_item.save
-      redirect_to @agenda_item, notice: 'Agenda item was successfully created.'
+      message = 'AgendaItem was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @agenda_item, notice: message
+      end
     else
       render :new
     end
