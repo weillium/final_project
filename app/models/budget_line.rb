@@ -5,6 +5,8 @@ class BudgetLine < ApplicationRecord
 
   # Validations
 
+  validates :budgeted_amount, :presence => true
+
   # Scopes
 
   def to_s
