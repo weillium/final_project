@@ -1,10 +1,10 @@
 class BudgetTypesController < ApplicationController
-  before_action :set_budget_type, only: [:show, :edit, :update, :destroy]
+  before_action :set_budget_type, only: %i[show edit update destroy]
 
   # GET /budget_types
   def index
     @q = BudgetType.ransack(params[:q])
-    @budget_types = @q.result(:distinct => true).includes(:budgets).page(params[:page]).per(10)
+    @budget_types = @q.result(distinct: true).includes(:budgets).page(params[:page]).per(10)
   end
 
   # GET /budget_types/1
@@ -18,15 +18,14 @@ class BudgetTypesController < ApplicationController
   end
 
   # GET /budget_types/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /budget_types
   def create
     @budget_type = BudgetType.new(budget_type_params)
 
     if @budget_type.save
-      redirect_to @budget_type, notice: 'Budget type was successfully created.'
+      redirect_to @budget_type, notice: "Budget type was successfully created."
     else
       render :new
     end
@@ -35,7 +34,7 @@ class BudgetTypesController < ApplicationController
   # PATCH/PUT /budget_types/1
   def update
     if @budget_type.update(budget_type_params)
-      redirect_to @budget_type, notice: 'Budget type was successfully updated.'
+      redirect_to @budget_type, notice: "Budget type was successfully updated."
     else
       render :edit
     end
@@ -44,17 +43,19 @@ class BudgetTypesController < ApplicationController
   # DELETE /budget_types/1
   def destroy
     @budget_type.destroy
-    redirect_to budget_types_url, notice: 'Budget type was successfully destroyed.'
+    redirect_to budget_types_url,
+                notice: "Budget type was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_budget_type
-      @budget_type = BudgetType.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def budget_type_params
-      params.require(:budget_type).permit(:type_name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_budget_type
+    @budget_type = BudgetType.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def budget_type_params
+    params.require(:budget_type).permit(:type_name)
+  end
 end

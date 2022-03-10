@@ -1,10 +1,11 @@
 class FamiliesController < ApplicationController
-  before_action :set_family, only: [:show, :edit, :update, :destroy]
+  before_action :set_family, only: %i[show edit update destroy]
 
   # GET /families
   def index
     @q = Family.ransack(params[:q])
-    @families = @q.result(:distinct => true).includes(:users, :scores).page(params[:page]).per(10)
+    @families = @q.result(distinct: true).includes(:users,
+                                                   :scores).page(params[:page]).per(10)
   end
 
   # GET /families/1
@@ -19,15 +20,14 @@ class FamiliesController < ApplicationController
   end
 
   # GET /families/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /families
   def create
     @family = Family.new(family_params)
 
     if @family.save
-      redirect_to @family, notice: 'Family was successfully created.'
+      redirect_to @family, notice: "Family was successfully created."
     else
       render :new
     end
@@ -36,7 +36,7 @@ class FamiliesController < ApplicationController
   # PATCH/PUT /families/1
   def update
     if @family.update(family_params)
-      redirect_to @family, notice: 'Family was successfully updated.'
+      redirect_to @family, notice: "Family was successfully updated."
     else
       render :edit
     end
@@ -45,17 +45,18 @@ class FamiliesController < ApplicationController
   # DELETE /families/1
   def destroy
     @family.destroy
-    redirect_to families_url, notice: 'Family was successfully destroyed.'
+    redirect_to families_url, notice: "Family was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_family
-      @family = Family.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def family_params
-      params.require(:family).permit(:name, :crest, :motto)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_family
+    @family = Family.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def family_params
+    params.require(:family).permit(:name, :crest, :motto)
+  end
 end

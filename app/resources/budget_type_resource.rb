@@ -10,5 +10,4 @@ class BudgetTypeResource < ApplicationResource
              resource: BudgetLineResource
 
   # Indirect associations
-
 end

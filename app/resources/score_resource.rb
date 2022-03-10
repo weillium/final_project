@@ -11,5 +11,4 @@ class ScoreResource < ApplicationResource
   belongs_to :family
 
   # Indirect associations
-
 end

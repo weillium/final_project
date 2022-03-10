@@ -2,10 +2,10 @@ class Message < ApplicationRecord
   # Direct associations
 
   belongs_to :receiver,
-             :class_name => "MessageGroup"
+             class_name: "MessageGroup"
 
   belongs_to :sender,
-             :class_name => "User"
+             class_name: "User"
 
   # Indirect associations
 
@@ -16,5 +16,4 @@ class Message < ApplicationRecord
   def to_s
     sender.to_s
   end
-
 end

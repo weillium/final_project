@@ -1,68 +1,75 @@
 class User < ApplicationRecord
   mount_base64_uploader :headshot, HeadshotUploader
 
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   belongs_to :family
 
   belongs_to :user_type
 
   has_many   :group_members,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :notifications,
-             :foreign_key => "creator_id",
-             :dependent => :destroy
+             foreign_key: "creator_id",
+             dependent: :destroy
 
   has_many   :messages,
-             :foreign_key => "sender_id",
-             :dependent => :destroy
+             foreign_key: "sender_id",
+             dependent: :destroy
 
   has_many   :tags,
-             :foreign_key => "tagged_id",
-             :dependent => :destroy
+             foreign_key: "tagged_id",
+             dependent: :destroy
 
   has_many   :comments,
-             :foreign_key => "commenter_id",
-             :dependent => :destroy
+             foreign_key: "commenter_id",
+             dependent: :destroy
 
   has_many   :photos,
-             :foreign_key => "upload_user_id",
-             :dependent => :destroy
+             foreign_key: "upload_user_id",
+             dependent: :destroy
 
   has_many   :agenda_items,
-             :foreign_key => "leader_id",
-             :dependent => :destroy
+             foreign_key: "leader_id",
+             dependent: :destroy
 
   # Indirect associations
 
   # Validations
 
-  validates :adventure_score, :presence => true
+  validates :adventure_score, presence: true
 
-  validates :adventure_score, :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 0 }
+  validates :adventure_score,
+            numericality: { less_than_or_equal_to: 5,
+                            greater_than_or_equal_to: 0 }
 
-  validates :beachwater_score, :presence => true
+  validates :beachwater_score, presence: true
 
-  validates :beachwater_score, :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 0 }
+  validates :beachwater_score,
+            numericality: { less_than_or_equal_to: 5,
+                            greater_than_or_equal_to: 0 }
 
-  validates :first_name, :presence => true
+  validates :first_name, presence: true
 
-  validates :freetime_score, :presence => true
+  validates :freetime_score, presence: true
 
-  validates :freetime_score, :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 0 }
+  validates :freetime_score,
+            numericality: { less_than_or_equal_to: 5,
+                            greater_than_or_equal_to: 0 }
 
-  validates :last_name, :presence => true
+  validates :last_name, presence: true
 
-  validates :nightlife_score, :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 0 }
+  validates :nightlife_score,
+            numericality: { less_than_or_equal_to: 5,
+                            greater_than_or_equal_to: 0 }
 
-  validates :phone_number, :presence => true
+  validates :phone_number, presence: true
 
-  validates :user_type_id, :presence => true
+  validates :user_type_id, presence: true
 
-  validates :walkup_song, :presence => true
+  validates :walkup_song, presence: true
 
   # Scopes
 

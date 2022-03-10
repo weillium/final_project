@@ -44,5 +44,4 @@ class UserResource < ApplicationResource
              foreign_key: :leader_id
 
   # Indirect associations
-
 end

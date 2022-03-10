@@ -1,10 +1,11 @@
 class MessageGroupsController < ApplicationController
-  before_action :set_message_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_message_group, only: %i[show edit update destroy]
 
   # GET /message_groups
   def index
     @q = MessageGroup.ransack(params[:q])
-    @message_groups = @q.result(:distinct => true).includes(:messages, :group_members).page(params[:page]).per(10)
+    @message_groups = @q.result(distinct: true).includes(:messages,
+                                                         :group_members).page(params[:page]).per(10)
   end
 
   # GET /message_groups/1
@@ -19,15 +20,15 @@ class MessageGroupsController < ApplicationController
   end
 
   # GET /message_groups/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /message_groups
   def create
     @message_group = MessageGroup.new(message_group_params)
 
     if @message_group.save
-      redirect_to @message_group, notice: 'Message group was successfully created.'
+      redirect_to @message_group,
+                  notice: "Message group was successfully created."
     else
       render :new
     end
@@ -36,7 +37,8 @@ class MessageGroupsController < ApplicationController
   # PATCH/PUT /message_groups/1
   def update
     if @message_group.update(message_group_params)
-      redirect_to @message_group, notice: 'Message group was successfully updated.'
+      redirect_to @message_group,
+                  notice: "Message group was successfully updated."
     else
       render :edit
     end
@@ -45,17 +47,19 @@ class MessageGroupsController < ApplicationController
   # DELETE /message_groups/1
   def destroy
     @message_group.destroy
-    redirect_to message_groups_url, notice: 'Message group was successfully destroyed.'
+    redirect_to message_groups_url,
+                notice: "Message group was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message_group
-      @message_group = MessageGroup.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def message_group_params
-      params.fetch(:message_group, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_message_group
+    @message_group = MessageGroup.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def message_group_params
+    params.fetch(:message_group, {})
+  end
 end

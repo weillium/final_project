@@ -1,15 +1,14 @@
 class ScoresController < ApplicationController
-  before_action :set_score, only: [:show, :edit, :update, :destroy]
+  before_action :set_score, only: %i[show edit update destroy]
 
   # GET /scores
   def index
     @q = Score.ransack(params[:q])
-    @scores = @q.result(:distinct => true).includes(:family).page(params[:page]).per(10)
+    @scores = @q.result(distinct: true).includes(:family).page(params[:page]).per(10)
   end
 
   # GET /scores/1
-  def show
-  end
+  def show; end
 
   # GET /scores/new
   def new
@@ -17,17 +16,16 @@ class ScoresController < ApplicationController
   end
 
   # GET /scores/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /scores
   def create
     @score = Score.new(score_params)
 
     if @score.save
-      message = 'Score was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Score was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @score, notice: message
       end
@@ -39,7 +37,7 @@ class ScoresController < ApplicationController
   # PATCH/PUT /scores/1
   def update
     if @score.update(score_params)
-      redirect_to @score, notice: 'Score was successfully updated.'
+      redirect_to @score, notice: "Score was successfully updated."
     else
       render :edit
     end
@@ -49,22 +47,22 @@ class ScoresController < ApplicationController
   def destroy
     @score.destroy
     message = "Score was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to scores_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_score
-      @score = Score.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def score_params
-      params.require(:score).permit(:family_id, :score, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_score
+    @score = Score.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def score_params
+    params.require(:score).permit(:family_id, :score, :description)
+  end
 end

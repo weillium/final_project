@@ -20,5 +20,4 @@ class PhotoResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

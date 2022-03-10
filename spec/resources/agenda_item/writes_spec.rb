@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe AgendaItemResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'agenda_items',
-          attributes: { }
-        }
+          type: "agenda_items",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe AgendaItemResource, type: :resource do
       AgendaItemResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { AgendaItem.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { AgendaItem.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:agenda_item) { create(:agenda_item) }
 
     let(:payload) do
       {
         data: {
           id: agenda_item.id.to_s,
-          type: 'agenda_items',
-          attributes: { } # Todo!
-        }
+          type: "agenda_items",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe AgendaItemResource, type: :resource do
       AgendaItemResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { agenda_item.reload.updated_at }
+      end.to change { agenda_item.reload.updated_at }
       # .and change { agenda_item.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:agenda_item) { create(:agenda_item) }
 
     let(:instance) do
       AgendaItemResource.find(id: agenda_item.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { AgendaItem.count }.by(-1)
+      end.to change { AgendaItem.count }.by(-1)
     end
   end
 end

@@ -1,6 +1,5 @@
 ActiveAdmin.register Notification do
-
- permit_params :creator_id, :title, :body, :attachment
+  permit_params :creator_id, :title, :body, :attachment
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +13,4 @@ ActiveAdmin.register Notification do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

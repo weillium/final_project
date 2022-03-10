@@ -15,5 +15,4 @@ class BudgetLineResource < ApplicationResource
              resource: AgendaItemResource
 
   # Indirect associations
-
 end

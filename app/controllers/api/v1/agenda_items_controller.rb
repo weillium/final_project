@@ -13,7 +13,7 @@ class Api::V1::AgendaItemsController < Api::V1::GraphitiController
     agenda_item = AgendaItemResource.build(params)
 
     if agenda_item.save
-      render jsonapi: agenda_item, status: 201
+      render jsonapi: agenda_item, status: :created
     else
       render jsonapi_errors: agenda_item
     end
@@ -33,7 +33,7 @@ class Api::V1::AgendaItemsController < Api::V1::GraphitiController
     agenda_item = AgendaItemResource.find(params)
 
     if agenda_item.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: agenda_item
     end

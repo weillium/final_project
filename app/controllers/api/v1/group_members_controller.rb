@@ -13,7 +13,7 @@ class Api::V1::GroupMembersController < Api::V1::GraphitiController
     group_member = GroupMemberResource.build(params)
 
     if group_member.save
-      render jsonapi: group_member, status: 201
+      render jsonapi: group_member, status: :created
     else
       render jsonapi_errors: group_member
     end
@@ -33,7 +33,7 @@ class Api::V1::GroupMembersController < Api::V1::GraphitiController
     group_member = GroupMemberResource.find(params)
 
     if group_member.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: group_member
     end

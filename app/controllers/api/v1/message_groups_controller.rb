@@ -13,7 +13,7 @@ class Api::V1::MessageGroupsController < Api::V1::GraphitiController
     message_group = MessageGroupResource.build(params)
 
     if message_group.save
-      render jsonapi: message_group, status: 201
+      render jsonapi: message_group, status: :created
     else
       render jsonapi_errors: message_group
     end
@@ -33,7 +33,7 @@ class Api::V1::MessageGroupsController < Api::V1::GraphitiController
     message_group = MessageGroupResource.find(params)
 
     if message_group.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: message_group
     end

@@ -13,7 +13,7 @@ class Api::V1::NotificationsController < Api::V1::GraphitiController
     notification = NotificationResource.build(params)
 
     if notification.save
-      render jsonapi: notification, status: 201
+      render jsonapi: notification, status: :created
     else
       render jsonapi_errors: notification
     end
@@ -33,7 +33,7 @@ class Api::V1::NotificationsController < Api::V1::GraphitiController
     notification = NotificationResource.find(params)
 
     if notification.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: notification
     end

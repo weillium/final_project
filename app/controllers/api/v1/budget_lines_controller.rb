@@ -13,7 +13,7 @@ class Api::V1::BudgetLinesController < Api::V1::GraphitiController
     budget_line = BudgetLineResource.build(params)
 
     if budget_line.save
-      render jsonapi: budget_line, status: 201
+      render jsonapi: budget_line, status: :created
     else
       render jsonapi_errors: budget_line
     end
@@ -33,7 +33,7 @@ class Api::V1::BudgetLinesController < Api::V1::GraphitiController
     budget_line = BudgetLineResource.find(params)
 
     if budget_line.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: budget_line
     end

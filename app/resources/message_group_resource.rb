@@ -12,5 +12,4 @@ class MessageGroupResource < ApplicationResource
              foreign_key: :receiver_id
 
   # Indirect associations
-
 end

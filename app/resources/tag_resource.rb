@@ -14,5 +14,4 @@ class TagResource < ApplicationResource
              foreign_key: :tagged_id
 
   # Indirect associations
-
 end

@@ -13,5 +13,4 @@ class NotificationResource < ApplicationResource
              resource: UserResource
 
   # Indirect associations
-
 end

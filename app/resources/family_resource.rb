@@ -13,5 +13,4 @@ class FamilyResource < ApplicationResource
   has_many   :users
 
   # Indirect associations
-
 end

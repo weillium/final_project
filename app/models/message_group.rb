@@ -2,12 +2,12 @@ class MessageGroup < ApplicationRecord
   # Direct associations
 
   has_many   :group_members,
-             :foreign_key => "group_id",
-             :dependent => :destroy
+             foreign_key: "group_id",
+             dependent: :destroy
 
   has_many   :messages,
-             :foreign_key => "receiver_id",
-             :dependent => :destroy
+             foreign_key: "receiver_id",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -18,5 +18,4 @@ class MessageGroup < ApplicationRecord
   def to_s
     created_at
   end
-
 end

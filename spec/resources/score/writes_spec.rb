@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe ScoreResource, type: :resource do
-  describe 'creating' do
+  describe "creating" do
     let(:payload) do
       {
         data: {
-          type: 'scores',
-          attributes: { }
-        }
+          type: "scores",
+          attributes: {},
+        },
       }
     end
 
@@ -15,23 +15,24 @@ RSpec.describe ScoreResource, type: :resource do
       ScoreResource.build(payload)
     end
 
-    it 'works' do
-      expect {
-        expect(instance.save).to eq(true), instance.errors.full_messages.to_sentence
-      }.to change { Score.count }.by(1)
+    it "works" do
+      expect do
+        expect(instance.save).to eq(true),
+                                 instance.errors.full_messages.to_sentence
+      end.to change { Score.count }.by(1)
     end
   end
 
-  describe 'updating' do
+  describe "updating" do
     let!(:score) { create(:score) }
 
     let(:payload) do
       {
         data: {
           id: score.id.to_s,
-          type: 'scores',
-          attributes: { } # Todo!
-        }
+          type: "scores",
+          attributes: {}, # Todo!
+        },
       }
     end
 
@@ -39,25 +40,25 @@ RSpec.describe ScoreResource, type: :resource do
       ScoreResource.find(payload)
     end
 
-    xit 'works (add some attributes and enable this spec)' do
-      expect {
+    xit "works (add some attributes and enable this spec)" do
+      expect do
         expect(instance.update_attributes).to eq(true)
-      }.to change { score.reload.updated_at }
+      end.to change { score.reload.updated_at }
       # .and change { score.foo }.to('bar') <- example
     end
   end
 
-  describe 'destroying' do
+  describe "destroying" do
     let!(:score) { create(:score) }
 
     let(:instance) do
       ScoreResource.find(id: score.id)
     end
 
-    it 'works' do
-      expect {
+    it "works" do
+      expect do
         expect(instance.destroy).to eq(true)
-      }.to change { Score.count }.by(-1)
+      end.to change { Score.count }.by(-1)
     end
   end
 end

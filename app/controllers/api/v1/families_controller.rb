@@ -13,7 +13,7 @@ class Api::V1::FamiliesController < Api::V1::GraphitiController
     family = FamilyResource.build(params)
 
     if family.save
-      render jsonapi: family, status: 201
+      render jsonapi: family, status: :created
     else
       render jsonapi_errors: family
     end
@@ -33,7 +33,7 @@ class Api::V1::FamiliesController < Api::V1::GraphitiController
     family = FamilyResource.find(params)
 
     if family.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: family
     end

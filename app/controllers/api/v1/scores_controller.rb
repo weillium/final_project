@@ -13,7 +13,7 @@ class Api::V1::ScoresController < Api::V1::GraphitiController
     score = ScoreResource.build(params)
 
     if score.save
-      render jsonapi: score, status: 201
+      render jsonapi: score, status: :created
     else
       render jsonapi_errors: score
     end
@@ -33,7 +33,7 @@ class Api::V1::ScoresController < Api::V1::GraphitiController
     score = ScoreResource.find(params)
 
     if score.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: score
     end
