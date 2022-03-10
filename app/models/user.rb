@@ -8,29 +8,6 @@ class User < ApplicationRecord
 
   belongs_to :user_type
 
-  has_many   :group_members,
-             dependent: :destroy
-
-  has_many   :notifications,
-             foreign_key: "creator_id",
-             dependent: :destroy
-
-  has_many   :messages,
-             foreign_key: "sender_id",
-             dependent: :destroy
-
-  has_many   :tags,
-             foreign_key: "tagged_id",
-             dependent: :destroy
-
-  has_many   :comments,
-             foreign_key: "commenter_id",
-             dependent: :destroy
-
-  has_many   :photos,
-             foreign_key: "upload_user_id",
-             dependent: :destroy
-
   has_many   :agenda_items,
              foreign_key: "leader_id",
              dependent: :destroy
@@ -66,8 +43,6 @@ class User < ApplicationRecord
                             greater_than_or_equal_to: 0 }
 
   validates :phone_number, presence: true
-
-  validates :user_type_id, presence: true
 
   validates :walkup_song, presence: true
 

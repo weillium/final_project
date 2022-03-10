@@ -2,25 +2,7 @@ Rails.application.routes.draw do
   scope path: ApplicationResource.endpoint_namespace,
         defaults: { format: :jsonapi } do
     scope module: "api/v1", as: "api" do
-      resources :group_members
-
-      resources :messages
-
-      resources :message_groups
-
-      resources :notifications
-
-      resources :comments
-
-      resources :tags
-
-      resources :photos
-
       resources :scores
-
-      resources :budget_types
-
-      resources :budget_lines
 
       resources :agenda_items
 
@@ -36,16 +18,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: "user_types#index"
-  resources :group_members
-  resources :messages
-  resources :message_groups
-  resources :notifications
-  resources :comments
-  resources :tags
-  resources :photos
   resources :scores
-  resources :budget_types
-  resources :budget_lines
   resources :agenda_items
   resources :families
   resources :user_types
