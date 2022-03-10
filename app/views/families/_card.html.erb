@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Family #<%= family.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Name</dt>
+      <!-- Display name start -->
+      <dd><%= family.name %></dd>
+      <!-- Display name end -->
+
+      <dt>Crest</dt>
+      <!-- Display crest start -->
+      <dd><%= family.crest %></dd>
+      <!-- Display crest end -->
+
+      <dt>Motto</dt>
+      <!-- Display motto start -->
+      <dd><%= family.motto %></dd>
+      <!-- Display motto end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back family, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link family start -->
+      <div class="col">
+        <%= link_to edit_family_url(family), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link family end -->
+
+      <!-- Delete link family start -->
+      <div class="col">
+        <%= link_to family, method: :delete, data: { confirm: "Do you really want to delete this family?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link family end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(family.updated_at) %> ago
+  </div>
+</div>

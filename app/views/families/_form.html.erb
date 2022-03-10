@@ -1,0 +1,83 @@
+<% was_validated = family.errors.any? %>
+
+<%= form_with(model: family, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = family.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <!-- Input for name start -->
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <!-- Input for name end -->
+    <% if name_was_invalid %>
+      <% family.errors.full_messages_for(:name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for name end -->
+  <!-- Label and input for crest start -->
+  <div class="form-group">
+    <% crest_class = "form-control" %>
+    <% crest_was_invalid = family.errors.include?(:crest) %>
+
+    <% if was_validated %>
+      <% if crest_was_invalid %>
+        <% crest_class << " is-invalid" %>
+      <% else %>
+        <% crest_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :crest %>
+    <!-- Input for crest start -->
+    <%= f.text_field :crest, class: crest_class, placeholder: "Enter crest" %>
+    <!-- Input for crest end -->
+    <% if crest_was_invalid %>
+      <% family.errors.full_messages_for(:crest).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for crest end -->
+  <!-- Label and input for motto start -->
+  <div class="form-group">
+    <% motto_class = "form-control" %>
+    <% motto_was_invalid = family.errors.include?(:motto) %>
+
+    <% if was_validated %>
+      <% if motto_was_invalid %>
+        <% motto_class << " is-invalid" %>
+      <% else %>
+        <% motto_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :motto %>
+    <!-- Input for motto start -->
+    <%= f.text_area :motto, class: motto_class, placeholder: "Enter motto" %>
+    <!-- Input for motto end -->
+    <% if motto_was_invalid %>
+      <% family.errors.full_messages_for(:motto).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for motto end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
