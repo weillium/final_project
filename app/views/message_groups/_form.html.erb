@@ -1,0 +1,5 @@
+<% was_validated = message_group.errors.any? %>
+
+<%= form_with(model: message_group, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
