@@ -42,8 +42,14 @@ class NotificationsController < ApplicationController
   # DELETE /notifications/1
   def destroy
     @notification.destroy
-    redirect_to notifications_url, notice: 'Notification was successfully destroyed.'
+    message = "Notification was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to notifications_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

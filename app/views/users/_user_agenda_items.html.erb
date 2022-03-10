@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Agenda Items
+
+    <a data-toggle="collapse" href="#user_agenda_items_new_form">
+      Add agenda item
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @user.agenda_items.each do |agenda_item| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to agenda_item, agenda_item %>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="user_agenda_items_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

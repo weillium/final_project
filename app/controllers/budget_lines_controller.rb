@@ -42,8 +42,14 @@ class BudgetLinesController < ApplicationController
   # DELETE /budget_lines/1
   def destroy
     @budget_line.destroy
-    redirect_to budget_lines_url, notice: 'Budget line was successfully destroyed.'
+    message = "BudgetLine was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to budget_lines_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
