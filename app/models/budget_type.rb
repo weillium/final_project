@@ -1,6 +1,10 @@
 class BudgetType < ApplicationRecord
   # Direct associations
 
+  has_many   :budgets,
+             :class_name => "BudgetLine",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

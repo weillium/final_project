@@ -4,6 +4,8 @@ RSpec.describe BudgetLine, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:budget_type) }
+
     it { should have_many(:itineraries) }
 
     end

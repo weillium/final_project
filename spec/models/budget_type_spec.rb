@@ -4,6 +4,8 @@ RSpec.describe BudgetType, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:budgets) }
+
     end
 
     describe "InDirect Associations" do

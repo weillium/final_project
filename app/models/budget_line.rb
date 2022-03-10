@@ -1,6 +1,8 @@
 class BudgetLine < ApplicationRecord
   # Direct associations
 
+  belongs_to :budget_type
+
   has_many   :itineraries,
              :class_name => "AgendaItem",
              :dependent => :destroy
