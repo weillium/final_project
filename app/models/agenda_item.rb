@@ -5,6 +5,8 @@ class AgendaItem < ApplicationRecord
 
   # Validations
 
+  validates :budget_line_id, :presence => true
+
   validates :description, :presence => true
 
   validates :end_time, :presence => true
