@@ -19,6 +19,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :notifications,
+             foreign_key: :creator_id
+
   has_many   :messages,
              foreign_key: :sender_id
 
