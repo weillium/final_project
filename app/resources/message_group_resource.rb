@@ -5,6 +5,9 @@ class MessageGroupResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :messages,
+             foreign_key: :receiver_id
+
   # Indirect associations
 
 end
