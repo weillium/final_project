@@ -42,7 +42,7 @@
 
     <%= f.label :agenda_item_id %>
     <!-- Input for agenda_item_id start -->
-    <%= f.number_field :agenda_item_id, class: agenda_item_class, placeholder: "Enter agenda item" %>
+    <%= f.collection_select :agenda_item_id, AgendaItem.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for agenda_item_id end -->
     <% if agenda_item_was_invalid %>
       <% photo.errors.full_messages_for(:agenda_item).each do |message| %>

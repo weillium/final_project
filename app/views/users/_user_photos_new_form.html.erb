@@ -13,7 +13,7 @@
     <%= f.label :agenda_item_id %>
 
     <!-- Input for agenda_item_id start -->
-    <%= f.text_field :agenda_item_id, class: "form-control" %>
+    <%= f.collection_select :agenda_item_id, AgendaItem.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for agenda_item_id end -->
   </div>
   <!-- Label and input for agenda_item_id end -->
