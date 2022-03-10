@@ -8,6 +8,8 @@ class ScoreResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :family
+
   # Indirect associations
 
 end
