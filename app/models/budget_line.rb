@@ -5,6 +5,8 @@ class BudgetLine < ApplicationRecord
 
   # Validations
 
+  validates :budget_type_id, :presence => true
+
   validates :budgeted_amount, :presence => true
 
   # Scopes

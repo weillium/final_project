@@ -12,6 +12,8 @@ RSpec.describe BudgetLine, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:budget_type_id) }
+
     it { should validate_presence_of(:budgeted_amount) }
 
     end
