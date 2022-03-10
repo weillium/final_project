@@ -16,7 +16,7 @@
 
     <%= f.label :upload_user_id %>
     <!-- Input for upload_user_id start -->
-    <%= f.number_field :upload_user_id, class: upload_user_class, placeholder: "Enter upload user" %>
+    <%= f.collection_select :upload_user_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for upload_user_id end -->
     <% if upload_user_was_invalid %>
       <% photo.errors.full_messages_for(:upload_user).each do |message| %>
