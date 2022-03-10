@@ -94,7 +94,7 @@
 
     <%= f.label :budget_type_id %>
     <!-- Input for budget_type_id start -->
-    <%= f.number_field :budget_type_id, class: budget_type_class, placeholder: "Enter budget type" %>
+    <%= f.collection_select :budget_type_id, BudgetType.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for budget_type_id end -->
     <% if budget_type_was_invalid %>
       <% budget_line.errors.full_messages_for(:budget_type).each do |message| %>
