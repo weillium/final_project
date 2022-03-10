@@ -40,11 +40,7 @@
       <dd><%= agenda_item.is_cyoa %></dd>
 
       <dt>Budget line</dt>
-      <dd>
-        <% if @agenda_item.budget_line.present? %>
-          <%= link_to agenda_item.budget_line, agenda_item.budget_line %>
-        <% end %>
-      </dd>
+      <dd><%= agenda_item.budget_line_id %></dd>
 
     </dl>
 
