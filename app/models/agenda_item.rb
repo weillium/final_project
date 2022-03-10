@@ -5,6 +5,8 @@ class AgendaItem < ApplicationRecord
 
   # Validations
 
+  validates :start_time, :presence => true
+
   # Scopes
 
   def to_s
