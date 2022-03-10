@@ -1,0 +1,96 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    User #<%= user.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>First name</dt>
+      <!-- Display first_name start -->
+      <dd><%= user.first_name %></dd>
+      <!-- Display first_name end -->
+
+      <dt>Last name</dt>
+      <!-- Display last_name start -->
+      <dd><%= user.last_name %></dd>
+      <!-- Display last_name end -->
+
+      <dt>User type</dt>
+      <!-- Display user_type_id start -->
+      <dd><%= user.user_type_id %></dd>
+      <!-- Display user_type_id end -->
+
+      <dt>Family</dt>
+      <!-- Display family_id start -->
+      <dd><%= user.family_id %></dd>
+      <!-- Display family_id end -->
+
+      <dt>Phone number</dt>
+      <!-- Display phone_number start -->
+      <dd><%= user.phone_number %></dd>
+      <!-- Display phone_number end -->
+
+      <dt>Dietary restrictions</dt>
+      <!-- Display dietary_restrictions start -->
+      <dd><%= user.dietary_restrictions %></dd>
+      <!-- Display dietary_restrictions end -->
+
+      <dt>Adventure score</dt>
+      <!-- Display adventure_score start -->
+      <dd><%= user.adventure_score %></dd>
+      <!-- Display adventure_score end -->
+
+      <dt>Freetime score</dt>
+      <!-- Display freetime_score start -->
+      <dd><%= user.freetime_score %></dd>
+      <!-- Display freetime_score end -->
+
+      <dt>Beachwater score</dt>
+      <!-- Display beachwater_score start -->
+      <dd><%= user.beachwater_score %></dd>
+      <!-- Display beachwater_score end -->
+
+      <dt>Nightlife score</dt>
+      <!-- Display nightlife_score start -->
+      <dd><%= user.nightlife_score %></dd>
+      <!-- Display nightlife_score end -->
+
+      <dt>Headshot</dt>
+      <!-- Display headshot start -->
+      <dd><%= user.headshot %></dd>
+      <!-- Display headshot end -->
+
+      <dt>Walkup song</dt>
+      <!-- Display walkup_song start -->
+      <dd><%= user.walkup_song %></dd>
+      <!-- Display walkup_song end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back user, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link user start -->
+      <div class="col">
+        <%= link_to edit_user_url(user), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link user end -->
+
+      <!-- Delete link user start -->
+      <div class="col">
+        <%= link_to user, method: :delete, data: { confirm: "Do you really want to delete this user?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link user end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(user.updated_at) %> ago
+  </div>
+</div>
