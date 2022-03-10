@@ -19,6 +19,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :agenda_items,
+             foreign_key: :leader_id
+
   # Indirect associations
 
 end
