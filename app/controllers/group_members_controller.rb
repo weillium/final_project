@@ -1,25 +1,20 @@
 class GroupMembersController < ApplicationController
   before_action :set_group_member, only: %i[show edit update destroy]
 
-  # GET /group_members
   def index
     @q = GroupMember.ransack(params[:q])
     @group_members = @q.result(distinct: true).includes(:user,
                                                         :group).page(params[:page]).per(10)
   end
 
-  # GET /group_members/1
   def show; end
 
-  # GET /group_members/new
   def new
     @group_member = GroupMember.new
   end
 
-  # GET /group_members/1/edit
   def edit; end
 
-  # POST /group_members
   def create
     @group_member = GroupMember.new(group_member_params)
 
@@ -35,7 +30,6 @@ class GroupMembersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /group_members/1
   def update
     if @group_member.update(group_member_params)
       redirect_to @group_member,
@@ -45,7 +39,6 @@ class GroupMembersController < ApplicationController
     end
   end
 
-  # DELETE /group_members/1
   def destroy
     @group_member.destroy
     message = "GroupMember was successfully deleted."
@@ -58,12 +51,10 @@ class GroupMembersController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_group_member
     @group_member = GroupMember.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def group_member_params
     params.require(:group_member).permit(:group_id, :user_id)
   end

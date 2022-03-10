@@ -1,28 +1,23 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[show edit update destroy]
 
-  # GET /photos
   def index
     @q = Photo.ransack(params[:q])
     @photos = @q.result(distinct: true).includes(:upload_user, :agenda_item,
                                                  :tags, :comments).page(params[:page]).per(10)
   end
 
-  # GET /photos/1
   def show
     @comment = Comment.new
     @tag = Tag.new
   end
 
-  # GET /photos/new
   def new
     @photo = Photo.new
   end
 
-  # GET /photos/1/edit
   def edit; end
 
-  # POST /photos
   def create
     @photo = Photo.new(photo_params)
 
@@ -38,7 +33,6 @@ class PhotosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /photos/1
   def update
     if @photo.update(photo_params)
       redirect_to @photo, notice: "Photo was successfully updated."
@@ -47,7 +41,6 @@ class PhotosController < ApplicationController
     end
   end
 
-  # DELETE /photos/1
   def destroy
     @photo.destroy
     message = "Photo was successfully deleted."
@@ -60,12 +53,10 @@ class PhotosController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_photo
     @photo = Photo.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def photo_params
     params.require(:photo).permit(:upload_user_id, :agenda_item_id, :photo,
                                   :title, :description)

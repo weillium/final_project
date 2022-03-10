@@ -1,26 +1,21 @@
 class BudgetTypesController < ApplicationController
   before_action :set_budget_type, only: %i[show edit update destroy]
 
-  # GET /budget_types
   def index
     @q = BudgetType.ransack(params[:q])
     @budget_types = @q.result(distinct: true).includes(:budgets).page(params[:page]).per(10)
   end
 
-  # GET /budget_types/1
   def show
     @budget_line = BudgetLine.new
   end
 
-  # GET /budget_types/new
   def new
     @budget_type = BudgetType.new
   end
 
-  # GET /budget_types/1/edit
   def edit; end
 
-  # POST /budget_types
   def create
     @budget_type = BudgetType.new(budget_type_params)
 
@@ -31,7 +26,6 @@ class BudgetTypesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /budget_types/1
   def update
     if @budget_type.update(budget_type_params)
       redirect_to @budget_type, notice: "Budget type was successfully updated."
@@ -40,7 +34,6 @@ class BudgetTypesController < ApplicationController
     end
   end
 
-  # DELETE /budget_types/1
   def destroy
     @budget_type.destroy
     redirect_to budget_types_url,
@@ -49,12 +42,10 @@ class BudgetTypesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_budget_type
     @budget_type = BudgetType.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def budget_type_params
     params.require(:budget_type).permit(:type_name)
   end

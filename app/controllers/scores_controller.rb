@@ -1,24 +1,19 @@
 class ScoresController < ApplicationController
   before_action :set_score, only: %i[show edit update destroy]
 
-  # GET /scores
   def index
     @q = Score.ransack(params[:q])
     @scores = @q.result(distinct: true).includes(:family).page(params[:page]).per(10)
   end
 
-  # GET /scores/1
   def show; end
 
-  # GET /scores/new
   def new
     @score = Score.new
   end
 
-  # GET /scores/1/edit
   def edit; end
 
-  # POST /scores
   def create
     @score = Score.new(score_params)
 
@@ -34,7 +29,6 @@ class ScoresController < ApplicationController
     end
   end
 
-  # PATCH/PUT /scores/1
   def update
     if @score.update(score_params)
       redirect_to @score, notice: "Score was successfully updated."
@@ -43,7 +37,6 @@ class ScoresController < ApplicationController
     end
   end
 
-  # DELETE /scores/1
   def destroy
     @score.destroy
     message = "Score was successfully deleted."
@@ -56,12 +49,10 @@ class ScoresController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_score
     @score = Score.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def score_params
     params.require(:score).permit(:family_id, :score, :description)
   end
