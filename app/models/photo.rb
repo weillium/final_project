@@ -1,4 +1,6 @@
 class Photo < ApplicationRecord
+  mount_base64_uploader :photo, PhotoUploader
+
   # Direct associations
 
   has_many   :comments,

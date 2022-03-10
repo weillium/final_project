@@ -57,7 +57,9 @@
 
       <dt>Headshot</dt>
       <!-- Display headshot start -->
-      <dd><%= user.headshot %></dd>
+      <dd>
+        <%= cl_image_tag @user.headshot, class: "img-fluid" %>
+      </dd>
       <!-- Display headshot end -->
 
       <dt>Walkup song</dt>

@@ -8,7 +8,7 @@
       <div class="card-body">
         <% was_validated = resource.errors.any? %>
         <!-- Form html options start -->
-        <% form_html_options = { method: :put, novalidate: true, class: "mb-3" } %>
+        <% form_html_options = { method: :put, novalidate: true, class: "mb-3", multipart: true } %>
         <!-- Form html options end -->
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: form_html_options) do |f| %>
 
@@ -443,11 +443,11 @@
 
             <%= f.label :headshot %>
 
-            <%= f.text_field :headshot, :class => headshot_class, :placeholder => "Enter headshot" %>
+            <%= f.file_field :headshot, :class => headshot_class %>
 
             <% if headshot_was_invalid %>
               <% resource.errors.full_messages_for(:headshot).each do |message| %>
-                <div class="invalid-feedback d-flex">
+                <div class="invalid-feedback">
                   <%= message %>
                 </div>
               <% end %>

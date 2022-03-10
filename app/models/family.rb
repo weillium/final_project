@@ -1,4 +1,6 @@
 class Family < ApplicationRecord
+  mount_base64_uploader :crest, CrestUploader
+
   # Direct associations
 
   has_many   :scores,

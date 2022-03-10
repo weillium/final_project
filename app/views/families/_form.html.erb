@@ -42,7 +42,7 @@
 
     <%= f.label :crest %>
     <!-- Input for crest start -->
-    <%= f.text_field :crest, class: crest_class, placeholder: "Enter crest" %>
+    <%= f.file_field :crest, class: "form-control" %>
     <!-- Input for crest end -->
     <% if crest_was_invalid %>
       <% family.errors.full_messages_for(:crest).each do |message| %>

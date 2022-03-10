@@ -32,7 +32,9 @@
 
       <dt>Photo</dt>
       <!-- Display photo start -->
-      <dd><%= agenda_item.photo %></dd>
+      <dd>
+        <%= cl_image_tag @agenda_item.photo, class: "img-fluid" %>
+      </dd>
       <!-- Display photo end -->
 
       <dt>Leader</dt>

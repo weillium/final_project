@@ -12,7 +12,9 @@
 
       <dt>Crest</dt>
       <!-- Display crest start -->
-      <dd><%= family.crest %></dd>
+      <dd>
+        <%= cl_image_tag @family.crest, class: "img-fluid" %>
+      </dd>
       <!-- Display crest end -->
 
       <dt>Motto</dt>

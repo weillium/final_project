@@ -1,4 +1,6 @@
 class AgendaItem < ApplicationRecord
+  mount_base64_uploader :photo, PhotoUploader
+
   # Direct associations
 
   belongs_to :budget_line
