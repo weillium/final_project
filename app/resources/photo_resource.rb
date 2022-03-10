@@ -10,6 +10,8 @@ class PhotoResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :comments
+
   has_many   :tags
 
   belongs_to :agenda_item
