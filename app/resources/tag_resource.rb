@@ -7,6 +7,10 @@ class TagResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :taggee,
+             resource: UserResource,
+             foreign_key: :tagged_id
+
   # Indirect associations
 
 end

@@ -19,6 +19,9 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :tags,
+             foreign_key: :tagged_id
+
   has_many   :comments,
              foreign_key: :commenter_id
 
