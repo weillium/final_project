@@ -17,7 +17,11 @@
 
       <dt>Location</dt>
       <!-- Display location start -->
-      <dd><%= agenda_item.location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "agenda_items/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display location end -->
 
       <dt>Activity name</dt>

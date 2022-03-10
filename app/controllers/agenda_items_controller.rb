@@ -4,6 +4,11 @@ class AgendaItemsController < ApplicationController
   # GET /agenda_items
   def index
     @agenda_items = AgendaItem.all
+    @location_hash = Gmaps4rails.build_markers(@agenda_items.where.not(:location_latitude => nil)) do |agenda_item, marker|
+      marker.lat agenda_item.location_latitude
+      marker.lng agenda_item.location_longitude
+      marker.infowindow "<h5><a href='/agenda_items/#{agenda_item.id}'>#{agenda_item.start_time}</a></h5><small>#{agenda_item.location_formatted_address}</small>"
+    end
   end
 
   # GET /agenda_items/1
