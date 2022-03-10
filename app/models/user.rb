@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :freetime_score, :presence => true
+
   validates :freetime_score, :numericality => { :less_than_or_equal_to => 5, :greater_than_or_equal_to => 0 }
 
   validates :last_name, :presence => true
