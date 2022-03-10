@@ -94,7 +94,7 @@
 
     <%= f.label :family_id %>
     <!-- Input for family_id start -->
-    <%= f.number_field :family_id, class: family_class, placeholder: "Enter family" %>
+    <%= f.collection_select :family_id, Family.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for family_id end -->
     <% if family_was_invalid %>
       <% user.errors.full_messages_for(:family).each do |message| %>
