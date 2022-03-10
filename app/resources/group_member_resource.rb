@@ -7,6 +7,9 @@ class GroupMemberResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :group,
+             resource: MessageGroupResource
+
   belongs_to :user
 
   # Indirect associations
