@@ -5,6 +5,8 @@ class GroupMember < ApplicationRecord
 
   # Validations
 
+  validates :group_id, :presence => true
+
   validates :user_id, :presence => true
 
   # Scopes
