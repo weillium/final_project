@@ -4,6 +4,8 @@ RSpec.describe Tag, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:taggee) }
+
     end
 
     describe "InDirect Associations" do

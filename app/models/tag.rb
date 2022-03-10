@@ -1,6 +1,10 @@
 class Tag < ApplicationRecord
   # Direct associations
 
+  belongs_to :taggee,
+             :class_name => "User",
+             :foreign_key => "tagged_id"
+
   # Indirect associations
 
   # Validations
