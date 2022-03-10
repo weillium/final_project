@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Photo</dt>
       <!-- Display photo_id start -->
-      <dd><%= tag.photo_id %></dd>
+      <dd>
+        <% if @tag.photo.present? %>
+          <%= link_to tag.photo, tag.photo %>
+        <% end %>
+      </dd>
       <!-- Display photo_id end -->
 
       <dt>Tagged</dt>
       <!-- Display tagged_id start -->
-      <dd><%= tag.tagged_id %></dd>
+      <dd>
+        <% if @tag.taggee.present? %>
+          <%= link_to tag.taggee, tag.taggee %>
+        <% end %>
+      </dd>
       <!-- Display tagged_id end -->
 
     </dl>

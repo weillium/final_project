@@ -43,7 +43,11 @@
 
       <dt>Leader</dt>
       <!-- Display leader_id start -->
-      <dd><%= agenda_item.leader_id %></dd>
+      <dd>
+        <% if @agenda_item.leader.present? %>
+          <%= link_to agenda_item.leader, agenda_item.leader %>
+        <% end %>
+      </dd>
       <!-- Display leader_id end -->
 
       <dt>Is cyoa</dt>
@@ -53,7 +57,11 @@
 
       <dt>Budget line</dt>
       <!-- Display budget_line_id start -->
-      <dd><%= agenda_item.budget_line_id %></dd>
+      <dd>
+        <% if @agenda_item.budget_line.present? %>
+          <%= link_to agenda_item.budget_line, agenda_item.budget_line %>
+        <% end %>
+      </dd>
       <!-- Display budget_line_id end -->
 
     </dl>

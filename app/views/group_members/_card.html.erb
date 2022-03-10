@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Group</dt>
       <!-- Display group_id start -->
-      <dd><%= group_member.group_id %></dd>
+      <dd>
+        <% if @group_member.group.present? %>
+          <%= link_to group_member.group, group_member.group %>
+        <% end %>
+      </dd>
       <!-- Display group_id end -->
 
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= group_member.user_id %></dd>
+      <dd>
+        <% if @group_member.user.present? %>
+          <%= link_to group_member.user, group_member.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
     </dl>

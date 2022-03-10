@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>Upload user</dt>
       <!-- Display upload_user_id start -->
-      <dd><%= photo.upload_user_id %></dd>
+      <dd>
+        <% if @photo.upload_user.present? %>
+          <%= link_to photo.upload_user, photo.upload_user %>
+        <% end %>
+      </dd>
       <!-- Display upload_user_id end -->
 
       <dt>Agenda item</dt>
       <!-- Display agenda_item_id start -->
-      <dd><%= photo.agenda_item_id %></dd>
+      <dd>
+        <% if @photo.agenda_item.present? %>
+          <%= link_to photo.agenda_item, photo.agenda_item %>
+        <% end %>
+      </dd>
       <!-- Display agenda_item_id end -->
 
       <dt>Photo</dt>

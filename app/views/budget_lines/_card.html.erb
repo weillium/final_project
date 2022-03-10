@@ -22,7 +22,11 @@
 
       <dt>Budget type</dt>
       <!-- Display budget_type_id start -->
-      <dd><%= budget_line.budget_type_id %></dd>
+      <dd>
+        <% if @budget_line.budget_type.present? %>
+          <%= link_to budget_line.budget_type, budget_line.budget_type %>
+        <% end %>
+      </dd>
       <!-- Display budget_type_id end -->
 
     </dl>

@@ -17,12 +17,20 @@
 
       <dt>User type</dt>
       <!-- Display user_type_id start -->
-      <dd><%= user.user_type_id %></dd>
+      <dd>
+        <% if @user.user_type.present? %>
+          <%= link_to user.user_type, user.user_type %>
+        <% end %>
+      </dd>
       <!-- Display user_type_id end -->
 
       <dt>Family</dt>
       <!-- Display family_id start -->
-      <dd><%= user.family_id %></dd>
+      <dd>
+        <% if @user.family.present? %>
+          <%= link_to user.family, user.family %>
+        <% end %>
+      </dd>
       <!-- Display family_id end -->
 
       <dt>Phone number</dt>
