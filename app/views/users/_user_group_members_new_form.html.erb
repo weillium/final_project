@@ -7,7 +7,7 @@
     <%= f.label :group_id %>
 
     <!-- Input for group_id start -->
-    <%= f.text_field :group_id, class: "form-control" %>
+    <%= f.collection_select :group_id, MessageGroup.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for group_id end -->
   </div>
   <!-- Label and input for group_id end -->

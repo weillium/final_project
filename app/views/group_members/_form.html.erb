@@ -16,7 +16,7 @@
 
     <%= f.label :group_id %>
     <!-- Input for group_id start -->
-    <%= f.number_field :group_id, class: group_class, placeholder: "Enter group" %>
+    <%= f.collection_select :group_id, MessageGroup.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for group_id end -->
     <% if group_was_invalid %>
       <% group_member.errors.full_messages_for(:group).each do |message| %>
