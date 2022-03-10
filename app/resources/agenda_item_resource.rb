@@ -14,6 +14,8 @@ class AgendaItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :budget_line
+
   has_many   :photos
 
   belongs_to :leader,

@@ -9,6 +9,9 @@ class BudgetLineResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :itineraries,
+             resource: AgendaItemResource
+
   # Indirect associations
 
 end
