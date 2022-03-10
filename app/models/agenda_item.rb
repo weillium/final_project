@@ -5,6 +5,8 @@ class AgendaItem < ApplicationRecord
 
   # Validations
 
+  validates :leader_id, :presence => true
+
   validates :location, :presence => true
 
   validates :start_time, :presence => true
